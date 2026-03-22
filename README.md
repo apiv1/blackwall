@@ -21,10 +21,16 @@
 | **工具总数** | 208 个 | 已去重和合并的独立工具 |
 | **状态机数量** | 14 个 | 覆盖完整攻击链 |
 | **HTB 场景** | 70+ 个 | 真实靶机攻击案例 |
-| **文档文件** | 48 个 | 34 个工具分类 + 14 个状态机 |
+| **文档文件** | 48 个 | 工具分类索引 + 14 个状态机 |
 | **覆盖率** | 100% | 所有核心工具已记录 |
 
 ## 🗂️ 项目结构
+
+### 快速导航
+
+- 📋 [查看所有工具（按字母顺序）](tools/)
+- 📂 [查看所有分类（按攻击链）](categories/)
+
 
 ```
 blackwall/
@@ -103,7 +109,7 @@ blackwall/
 ### 快速查找
 
 - **按分类查找**：查看 [tools/README.md](tools/README.md)
-- **按标签查找**：查看 [tools/ALL_TOOLS_FLAT.md](tools/ALL_TOOLS_FLAT.md)
+- **按标签查找**：查看 [tools/](tools/)
 - **按攻击阶段**：查看对应的状态机文档
 
 ## 🔄 攻击状态机
@@ -177,7 +183,7 @@ IF 发现 445 端口
 1. 查看 [03-web-application-attack.md](state-machines/03-web-application-attack.md)
 2. 找到"SQL 注入"部分
 3. 学习决策逻辑和 HTB 案例
-4. 查看 [tools/03-web-vulnerability-scanning.md](tools/03-web-vulnerability-scanning.md) 了解 sqlmap 用法
+4. 查看 [categories/05-web-vulnerability-scanning.md](categories/05-web-vulnerability-scanning.md) 了解 sqlmap 用法
 
 **场景 3：我需要在内网横向移动**
 1. 查看 [11-post-exploitation-persistence.md](state-machines/11-post-exploitation-persistence.md)
@@ -231,8 +237,10 @@ IF 发现 445 端口
 
 ### 核心文档
 - [项目需求](requirement.md) - 了解项目背景和目标
-- [工具总览](tools/README.md) - 34 个工具分类
-- [工具平铺列表](tools/ALL_TOOLS_FLAT.md) - 208 个工具按标签组织
+- [分类文档](categories/) - 33 个攻击链分类
+- [工具文档](tools/) - 204 个独立工具文档
+- [工具总览](tools/README.md) - 工具分类索引
+- [工具平铺列表](tools/) - 204 个独立工具文档
 - [状态机总览](state-machines/README.md) - 14 个攻击状态机
 
 ### 常用状态机
