@@ -1,6 +1,5 @@
 # 所有工具索引（按字母顺序）
 
-**总共 206 个工具**
 
 ## A
 - [aircrack-ng](aircrack-ng.md) - WiFi 安全审计工具套件，破解 WEP/WPA/WPA2
@@ -100,7 +99,7 @@
 - [impacket-scripts](impacket-scripts.md) - Impacket 工具集，包含多种 Windows 协议攻击工具
 - [impacket-smbexec](impacket-smbexec.md) - 通过 SMB 执行命令，不使用 RemComSvc
 - [impacket-smbserver](impacket-smbserver.md) - 快速启动一个 SMB 服务器，用于文件传输
-- [index](index.md) - 工具说明
+- [README](README.md) - 工具说明
 - [iodine-client-start](iodine-client-start.md) - Iodine DNS 隧道客户端启动脚本
 - [iodine-iodine-client-start](iodine-iodine-client-start.md) - 通过 DNS 创建 IPv4 隧道
 - [istat](istat.md) - 显示 inode 的详细信息

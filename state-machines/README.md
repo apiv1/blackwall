@@ -1,61 +1,13 @@
-# 渗透测试状态机总览 (Penetration Testing State Machines Overview)
+# 攻击状态机总览
 
-## 项目进度
+本目录包含 14 个完整的攻击状态机，覆盖从信息收集到后渗透的完整攻击链。每个状态机都包含 Mermaid 流程图、If-Then-Else 决策树、5-6 个 HTB 真实场景案例。
 
-### ✅ 阶段 1：工具枚举（已完成）
-- 枚举了 199 个 Kali Linux 预装工具
-- 记录了 208 个核心工具的详细文档（已去重和合并）
-- 覆盖率：100%
-- 详见：[项目总览 README.md](../README.md)
+## 📊 状态机列表
 
-### ✅ 阶段 2：构建状态机（已完成）
-已完成 14 个状态机，覆盖完整攻击链：
+### 信息收集阶段 (Reconnaissance)
 
-**信息收集阶段**：
-1. ✅ 网络服务枚举状态机
-2. ✅ SMB 枚举与攻击状态机
-3. ✅ Web 应用扫描与攻击状态机
-
-**初始访问阶段**：
-4. ✅ 暴力破解攻击状态机
-5. ✅ 漏洞利用状态机
-6. ✅ 数据库攻击状态机
-
-**权限提升阶段**：
-7. ✅ 权限提升状态机
-8. ✅ 密码攻击状态机
-
-**持久化与横向移动**：
-9. ✅ 后渗透和持久化状态机
-10. ✅ Active Directory 攻击状态机
-11. ✅ 凭据提取状态机
-
-**高级技术**：
-12. ✅ WiFi 攻击状态机
-13. ✅ 网络嗅探和中间人攻击状态机
-14. ✅ 隧道和代理状态机
-
-### ✅ 阶段 3：场景决策链路（已完成）
-- 每个状态机包含 5-6 个真实 HTB 案例
-- 完整攻击路径演示
-- If-Then-Else 决策树
-- Mermaid 流程图可视化
-
----
-
-## 已完成的状态机
-
-### 1. 网络服务枚举状态机
-**文件**：[01-network-service-enumeration.md](01-network-service-enumeration.md)
-
-**核心工具**：
-- nmap - 端口扫描与服务识别
-- masscan - 超高速端口扫描
-- unicornscan - 异步扫描
-- hping3 - 防火墙测试
-- netdiscover - 本地网络主机发现
-- arping - ARP 层主机发现
-- fping - 批量 ICMP 探测
+#### 1. [网络服务枚举](01-network-service-enumeration.md)
+**核心工具**：nmap, masscan, unicornscan, hping3, netdiscover, arping, fping
 
 **关键决策点**：
 - 单个目标 vs 大范围扫描
@@ -63,24 +15,12 @@
 - ICMP 可用 vs 被禁用
 - 防火墙严格 vs 一般
 
-**场景案例**：
-- HTB 靶机初始扫描
-- 内网渗透主机发现
+**典型场景**：HTB 靶机初始扫描、内网渗透主机发现
 
 ---
 
-### 2. SMB 枚举与攻击状态机
-**文件**：[02-smb-enumeration-attack.md](02-smb-enumeration-attack.md)
-
-**核心工具**：
-- nmap - SMB 服务发现
-- enum4linux - SMB 全面枚举
-- smbclient - SMB 客户端访问
-- smbmap - SMB 共享权限检查
-- netexec (crackmapexec) - SMB 批量测试
-- impacket-psexec - 远程命令执行
-- impacket-smbexec - 无 RemComSvc 的远程执行
-- nbtscan - NetBIOS 扫描
+#### 2. [SMB 枚举与攻击](02-smb-enumeration-attack.md)
+**核心工具**：enum4linux, smbclient, smbmap, netexec, impacket-psexec, impacket-smbexec
 
 **关键决策点**：
 - SMBv1 vs SMBv2/v3
@@ -88,189 +28,300 @@
 - 普通用户 vs 管理员权限
 - 明文密码 vs NTLM 哈希
 
-**场景案例**：
-- 内网 SMB 枚举与横向移动
-- Pass-the-Hash 横向移动
+**典型场景**：内网 SMB 枚举与横向移动、Pass-the-Hash 攻击
 
 ---
 
-### 3. Web 应用扫描与攻击状态机
-**文件**：[03-web-application-attack.md](03-web-application-attack.md)
-
-**核心工具**：
-- whatweb - Web 指纹识别
-- nikto - Web 服务器漏洞扫描
-- ffuf - 高速目录/文件爆破
-- gobuster - 多功能爆破工具
-- wpscan - WordPress 专用扫描器
-- sqlmap - SQL 注入自动化工具
-- burpsuite - Web 应用安全测试平台
-- commix - 命令注入自动化工具
-- wafw00f - WAF 识别
+#### 3. [Web 应用攻击](03-web-application-attack.md)
+**核心工具**：whatweb, nikto, ffuf, gobuster, wpscan, sqlmap, burpsuite, commix
 
 **关键决策点**：
 - CMS vs 框架 vs 通用应用
 - 有 WAF vs 无 WAF
-- 发现漏洞 vs 无发现
 - SQL 注入 vs 命令注入 vs 文件上传
 
-**场景案例**：
-- HTB 靶机 Web 应用渗透
-- WordPress 站点渗透
-- SQL 注入到 RCE
+**典型场景**：HTB 靶机 Web 应用渗透、WordPress 站点渗透、SQL 注入到 RCE
 
 ---
 
-## 状态机设计原则
+### 初始访问阶段 (Initial Access)
 
-### 1. 原子工具状态映射
-每个工具包含：
-- **触发状态**：什么输入触发这个工具
-- **核心命令**：最实战的命令组合
-- **状态转移**：不同输出导向不同工具
+#### 4. [Active Directory 攻击](04-active-directory-attack.md)
+**核心工具**：bloodhound-python, impacket 工具集, netexec, mimikatz
 
-### 2. 聚类攻击状态机
-使用 If-Then-Else 逻辑：
+**关键决策点**：
+- Kerberos 攻击（AS-REP Roasting, Kerberoasting）
+- LDAP 枚举
+- 域控制器攻击
+- 黄金票据/白银票据
+
+**典型场景**：域环境渗透、域控权限获取
+
+---
+
+#### 9. [暴力破解攻击](09-brute-force-attack.md)
+**核心工具**：hydra, medusa, ncrack, patator
+
+**关键决策点**：
+- SSH/RDP/Web 暴力破解
+- 密码喷洒 vs 传统暴力破解
+- 字典选择策略
+
+**典型场景**：服务登录暴力破解、密码喷洒攻击
+
+---
+
+#### 12. [漏洞利用](12-exploitation.md)
+**核心工具**：metasploit-framework, searchsploit, msfvenom
+
+**关键决策点**：
+- 自动化利用 vs 手动利用
+- Payload 选择
+- 反弹 shell vs 正向连接
+
+**典型场景**：已知漏洞利用、Exploit-DB 搜索与利用
+
+---
+
+#### 13. [数据库攻击](13-database-attack.md)
+**核心工具**：sqlmap, impacket-mssqlclient, mysql 客户端
+
+**关键决策点**：
+- MySQL vs MSSQL vs PostgreSQL
+- SQL 注入 vs 直接访问
+- 数据提取 vs 命令执行
+
+**典型场景**：数据库渗透、SQL 注入利用、xp_cmdshell 执行
+
+---
+
+### 权限提升阶段 (Privilege Escalation)
+
+#### 5. [权限提升](05-privilege-escalation.md)
+**核心工具**：linpeas, winpeas, unix-privesc-check
+
+**关键决策点**：
+- Linux vs Windows 提权
+- 内核漏洞 vs 配置错误
+- SUID/Sudo vs 服务漏洞
+
+**典型场景**：Linux 提权、Windows 提权、容器逃逸
+
+---
+
+#### 8. [密码攻击](08-password-attack.md)
+**核心工具**：hashcat, john, hash-identifier, hashid
+
+**关键决策点**：
+- 在线破解 vs 离线破解
+- 哈希类型识别
+- 字典攻击 vs 规则攻击 vs 暴力破解
+
+**典型场景**：哈希破解、密码字典生成、规则攻击
+
+---
+
+### 持久化与横向移动 (Persistence & Lateral Movement)
+
+#### 11. [后渗透和持久化](11-post-exploitation-persistence.md)
+**核心工具**：weevely, webshells, impacket-psexec, netexec
+
+**关键决策点**：
+- Webshell vs 系统后门
+- 权限维持策略
+- 横向移动技术
+- 痕迹清理
+
+**典型场景**：获得 shell 后的操作、内网横向移动、权限维持
+
+---
+
+#### 6. [凭据提取](06-credential-extraction.md)
+**核心工具**：mimikatz, impacket-secretsdump, samdump2, chntpw
+
+**关键决策点**：
+- Windows vs Linux 凭据提取
+- 内存提取 vs 离线提取
+- NTLM 哈希 vs 明文密码
+
+**典型场景**：Windows 凭据窃取、SAM 数据库提取、域凭据获取
+
+---
+
+### 高级技术 (Advanced Techniques)
+
+#### 7. [WiFi 攻击](07-wifi-attack.md)
+**核心工具**：aircrack-ng, wifite, reaver, bully, pixiewps
+
+**关键决策点**：
+- WPA/WPA2 破解 vs WPS 攻击
+- 握手包捕获策略
+- Evil Twin 攻击
+
+**典型场景**：WiFi 密码破解、WPS PIN 攻击、无线网络渗透
+
+---
+
+#### 10. [网络嗅探和中间人攻击](10-network-sniffing-mitm.md)
+**核心工具**：tcpdump, wireshark, arpspoof, mitmproxy, responder
+
+**关键决策点**：
+- ARP 欺骗 vs DNS 欺骗
+- SSL 剥离策略
+- LLMNR/NBT-NS 投毒
+
+**典型场景**：内网流量嗅探、中间人攻击、凭据捕获
+
+---
+
+#### 14. [隧道和代理](14-tunneling-pivoting.md)
+**核心工具**：proxychains4, chisel, dns2tcp, stunnel4, socat
+
+**关键决策点**：
+- SSH 隧道 vs HTTP 隧道 vs DNS 隧道
+- 正向代理 vs 反向代理
+- SOCKS vs HTTP 代理
+
+**典型场景**：内网穿透、多层网络渗透、流量隧道
+
+---
+
+## 🎯 状态机特点
+
+每个状态机文档包含以下内容：
+
+### 1. Mermaid 流程图
+可视化决策路径，快速理解攻击流程
+
+### 2. 状态转换表
+| 当前状态 | 条件 | 动作 | 下一状态 |
+|---------|------|------|---------|
+| 初始状态 | 条件判断 | 执行工具 | 目标状态 |
+
+### 3. If-Then-Else 决策树
 ```
-IF 条件 A:
-    THEN 执行工具 X
-    IF 结果 Y:
-        THEN 转移到状态 Z
-    ELSE:
-        THEN 转移到状态 W
-ELSE:
-    THEN 执行工具 V
+IF 条件 A
+  THEN 执行工具 X
+    IF 结果 Y
+      THEN 转移到状态 Z
+    ELSE
+      THEN 转移到状态 W
+ELSE
+  THEN 执行工具 V
 ```
 
-### 3. 场景决策链路
-包含：
-- **场景还原**：初始条件和目标
-- **状态机运行路径**：逐步执行过程
-- **内化点**：为什么选择 A 而不是 B
+### 4. HTB 场景案例
+5-6 个真实靶机攻击案例，包含：
+- 场景还原：初始条件
+- 攻击路径：逐步执行
+- 内化点：为什么这样做
 
-### 4. 思维判定流程图
-使用 Mermaid 语法绘制决策流程
+### 5. 工具对比表
+不同工具的优劣势分析，帮助选择最合适的工具
 
----
+### 6. 关键技巧
+实战中的高级技巧和注意事项
 
-## 工具选择决策框架
-
-### 快速参考表
-
-| 攻击阶段 | 首选工具 | 备选工具 | 使用场景 |
-|---------|---------|---------|---------|
-| **侦察** |
-| 端口扫描 | nmap | masscan | 单目标 vs 大范围 |
-| 主机发现 | netdiscover | arping/fping | 内网 vs 远程 |
-| 指纹识别 | whatweb | wappalyzer | Web 应用 |
-| **枚举** |
-| SMB 枚举 | enum4linux | smbmap | 匿名 vs 有凭据 |
-| Web 目录 | ffuf | gobuster | 速度 vs 稳定性 |
-| DNS 枚举 | dnsenum | dnsrecon | 全面 vs 快速 |
-| **利用** |
-| SQL 注入 | sqlmap | 手动测试 | 自动化 vs 精确 |
-| 命令注入 | commix | 手动测试 | 检测 vs 利用 |
-| SMB 执行 | impacket-psexec | impacket-smbexec | 稳定 vs 隐蔽 |
-| **后渗透** |
-| 权限提升 | linpeas/winpeas | 手动枚举 | 自动 vs 手动 |
-| 凭据提取 | mimikatz | secretsdump | Windows vs 离线 |
-| 横向移动 | netexec | impacket | 批量 vs 单个 |
+### 7. 防御检测
+攻击者视角的防御绕过技术
 
 ---
 
-## 状态机之间的转移关系
+## 🔄 状态机之间的转移关系
 
 ```
 [网络服务枚举]
     ↓
     ├─ 发现 445 端口 → [SMB 枚举与攻击]
-    ├─ 发现 80/443 端口 → [Web 应用扫描与攻击]
+    ├─ 发现 80/443 端口 → [Web 应用攻击]
     ├─ 发现 88/389 端口 → [Active Directory 攻击]
+    ├─ 发现 1433/3306 端口 → [数据库攻击]
     └─ 发现其他服务 → [对应专项状态机]
 
-[SMB 枚举与攻击]
+[SMB 枚举与攻击] / [Web 应用攻击] / [数据库攻击]
     ↓
     ├─ 获得低权限 shell → [权限提升]
     ├─ 获得管理员权限 → [凭据提取] → [横向移动]
     └─ 发现域环境 → [Active Directory 攻击]
 
-[Web 应用扫描与攻击]
+[权限提升]
     ↓
-    ├─ 获得 webshell → [权限提升]
-    ├─ 获得数据库访问 → [数据库攻击]
-    └─ 获得凭据 → [横向移动]
+    ├─ 获得 root/SYSTEM → [凭据提取]
+    ├─ 发现其他主机 → [横向移动]
+    └─ 需要维持访问 → [后渗透和持久化]
+
+[凭据提取]
+    ↓
+    ├─ 获得明文密码 → [横向移动]
+    ├─ 获得哈希 → [密码攻击] → [横向移动]
+    └─ 获得票据 → [Active Directory 攻击]
 ```
 
 ---
 
-## 使用指南
+## 📖 使用指南
 
 ### 如何使用这些状态机
 
-1. **确定当前阶段**
-   - 根据已获得的信息，确定你处于哪个攻击阶段
-   - 例如：发现 445 端口 → 使用 SMB 状态机
+#### 1. 确定当前阶段
+根据已获得的信息，确定你处于哪个攻击阶段：
+- 刚开始扫描 → 网络服务枚举
+- 发现特定端口 → 对应服务的状态机
+- 获得 shell → 权限提升
+- 获得高权限 → 后渗透和持久化
 
-2. **查找对应状态机**
-   - 打开对应的状态机文档
-   - 阅读"原子工具状态映射"部分
+#### 2. 查找对应状态机
+打开对应的状态机文档，快速浏览：
+- Mermaid 流程图：理解整体流程
+- 决策树：找到当前状态对应的分支
 
-3. **执行决策流程**
-   - 根据当前状态，选择对应的工具
-   - 执行命令，观察输出
-   - 根据"状态转移"部分，决定下一步
+#### 3. 执行决策流程
+- 根据当前状态，选择对应的工具
+- 执行命令，观察输出
+- 根据"状态转移"部分，决定下一步
 
-4. **参考场景案例**
-   - 查看"场景决策链路"部分
-   - 学习真实案例中的决策过程
-   - 理解"内化点"中的思维方式
+#### 4. 参考场景案例
+- 查看"HTB 场景案例"部分
+- 学习真实案例中的决策过程
+- 理解"内化点"中的思维方式
 
-5. **查看流程图**
-   - 使用"思维判定流程图"快速理解决策逻辑
-   - 在实战中对照流程图执行
-
----
-
-## 下一步计划
-
-### 即将构建的状态机
-
-1. **Active Directory 攻击状态机**
-   - Kerberos 攻击
-   - LDAP 枚举
-   - 域控制器攻击
-   - 黄金票据/白银票据
-
-2. **权限提升状态机**
-   - Linux 提权
-   - Windows 提权
-   - 内核漏洞利用
-   - 配置错误利用
-
-3. **凭据提取状态机**
-   - Windows 凭据提取
-   - Linux 凭据提取
-   - 浏览器凭据
-   - 数据库凭据
-
-4. **WiFi 攻击状态机**
-   - WPA/WPA2 破解
-   - WPS 攻击
-   - Evil Twin 攻击
-   - 握手包捕获
+#### 5. 工具选择
+- 查看"工具对比表"
+- 根据场景选择最合适的工具
+- 参考"关键技巧"优化攻击效果
 
 ---
 
-## 贡献与反馈
+## 🎓 学习路径
 
-这是一个持续演进的项目，欢迎：
-- 补充新的工具和技术
-- 添加更多真实案例
-- 优化决策逻辑
-- 纠正错误和不足
+### 初学者路径
+1. 从 [网络服务枚举](01-network-service-enumeration.md) 开始
+2. 按照攻击链顺序学习：侦察 → 初始访问 → 权限提升 → 后渗透
+3. 每个状态机都完整学习一遍
+4. 在 HTB 靶机上实践
+
+### 进阶路径
+1. 直接查找感兴趣的攻击技术状态机
+2. 深入学习决策树和工具对比
+3. 研究 HTB 案例中的"内化点"
+4. 总结自己的攻击方法论
+
+### 实战路径
+1. 遇到问题时快速查找对应状态机
+2. 按照决策树执行攻击
+3. 参考"关键技巧"解决卡点
+4. 记录自己的经验和教训
 
 ---
 
-*文档生成时间：2026-03-22*
-*项目状态：阶段 2 进行中*
-*完成度：3/7 状态机*
+## 🔗 相关资源
+
+- [工具索引](../tools/README.md) - 查找具体工具的详细用法
+- [分类索引](../categories/README.md) - 按攻击链查找工具
+- [项目总览](../README.md) - 了解项目背景和设计理念
+
+---
+
+*最后更新：2026-03-22*
+*状态机数量：14 个*
+*HTB 场景：70+ 个*
