@@ -449,7 +449,7 @@ crackmapexec smb target -u admin -p pass --lsa
 - 成功登录后立即异常行为
 
 ## 相关状态机
-- [08-password-attack.md](08-password-attack.md) - 密码破解（离线）
+- [08-password-attack.md](08-password-attack.md) - [密码破解](08-password-attack.md)（离线）
 - [04-active-directory-attack.md](04-active-directory-attack.md) - 域环境密码喷洒
 - [03-web-application-attack.md](03-web-application-attack.md) - Web 登录暴力破解
 - [01-network-service-enumeration.md](01-network-service-enumeration.md) - 服务发现

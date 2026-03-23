@@ -181,7 +181,7 @@ IF 隧道断开
     # 或使用 autossh
     autossh -M 0 -D 1080 -N user@jump_host
 
-ELSE IF 需要持久化隧道
+ELSE IF 需要[持久化](11-post-exploitation-persistence.md)隧道
   THEN 创建 systemd 服务
     cat > /etc/systemd/system/ssh-tunnel.service << EOF
     [Unit]

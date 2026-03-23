@@ -5,3 +5,8 @@
 ### [bloodhound-python](../tools/bloodhound-python.md)
 BloodHound 的 Python 数据收集器，枚举 AD 关系
 
+---
+
+## 相关状态机
+
+- [Active Directory攻击](../state-machines/04-active-directory-attack.md)

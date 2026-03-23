@@ -6,7 +6,7 @@ SMB（Server Message Block）是 Windows 网络中最常见的文件共享协议
 
 ## 原子工具状态映射 (Atomic Tool-State Mapping)
 
-### 1. nmap - SMB 服务发现
+### 1. [nmap](../tools/nmap.md) - SMB 服务发现
 
 **触发状态 (Trigger)**：
 - 输入：发现 139/445 端口开放
@@ -27,12 +27,12 @@ nmap -p 445 --script smb-vuln-* <target>
 **状态转移 (State Transition)**：
 - **如果发现 SMBv1** → 转移到：EternalBlue 漏洞检测
 - **如果发现 Guest 访问** → 转移到：匿名枚举
-- **如果需要认证** → 转移到：凭据获取/暴力破解
-- **如果发现漏洞** → 转移到：漏洞利用
+- **如果需要认证** → 转移到：凭据获取/[暴力破解](09-brute-force-attack.md)
+- **如果发现漏洞** → 转移到：[漏洞利用](12-exploitation.md)
 
 ---
 
-### 2. enum4linux - SMB 全面枚举
+### 2. [enum4linux](../tools/enum4linux.md) - SMB 全面枚举
 
 **触发状态 (Trigger)**：
 - 输入：发现 SMB 服务
@@ -52,14 +52,14 @@ enum4linux -S <target>
 
 **状态转移 (State Transition)**：
 - **如果枚举成功** → 转移到：
-  - 发现用户列表 → 暴力破解
+  - 发现用户列表 → [暴力破解](09-brute-force-attack.md)
   - 发现可写共享 → 上传 payload
   - 发现敏感文件 → 下载分析
 - **如果枚举失败（需要认证）** → 转移到：凭据获取
 
 ---
 
-### 3. smbclient - SMB 客户端访问
+### 3. [smbclient](../tools/smbclient.md) - SMB 客户端访问
 
 **触发状态 (Trigger)**：
 - 输入：发现 SMB 共享
@@ -85,7 +85,7 @@ smbclient //<target>/share -U username
 
 ---
 
-### 4. smbmap - SMB 共享权限检查
+### 4. [smbmap](../tools/smbmap.md) - SMB 共享权限检查
 
 **触发状态 (Trigger)**：
 - 输入：发现 SMB 服务
@@ -142,12 +142,12 @@ netexec smb <target> -u username -p password --sam
   - 枚举共享
   - 执行命令
   - 提取凭据
-- **如果凭据无效** → 转移到：继续暴力破解
+- **如果凭据无效** → 转移到：继续[暴力破解](09-brute-force-attack.md)
 - **如果是管理员** → 转移到：横向移动
 
 ---
 
-### 6. impacket-psexec - 远程命令执行
+### 6. [impacket-psexec](../tools/impacket-psexec.md) - 远程命令执行
 
 **触发状态 (Trigger)**：
 - 输入：有效的管理员凭据
@@ -164,14 +164,14 @@ impacket-psexec domain/user@<target> -hashes :NTLM_hash
 
 **状态转移 (State Transition)**：
 - **如果连接成功** → 获得 SYSTEM shell，转移到：
-  - 权限提升（已是 SYSTEM）
+  - [权限提升](05-privilege-escalation.md)（已是 SYSTEM）
   - 横向移动
-  - 凭据提取
+  - [凭据提取](06-credential-extraction.md)
 - **如果连接失败** → 转移到：尝试其他方法（smbexec、wmiexec）
 
 ---
 
-### 7. impacket-smbexec - 无 RemComSvc 的远程执行
+### 7. [impacket-smbexec](../tools/impacket-smbexec.md) - 无 RemComSvc 的远程执行
 
 **触发状态 (Trigger)**：
 - 输入：psexec 被检测或失败
@@ -187,12 +187,12 @@ impacket-smbexec domain/user@<target> -hashes :NTLM_hash
 ```
 
 **状态转移 (State Transition)**：
-- **如果连接成功** → 获得 shell，转移到：后渗透
+- **如果连接成功** → 获得 shell，转移到：[后渗透](11-post-exploitation-persistence.md)
 - **如果连接失败** → 转移到：尝试 WinRM 或其他方法
 
 ---
 
-### 8. nbtscan - NetBIOS 扫描
+### 8. [nbtscan](../tools/nbtscan.md) - NetBIOS 扫描
 
 **触发状态 (Trigger)**：
 - 输入：内网环境，需要快速识别 Windows 主机
@@ -223,7 +223,7 @@ nbtscan 192.168.1.0/24
         IF 存在漏洞:
             THEN 使用 Metasploit exploit
             → 获得 SYSTEM shell
-            → 转移到后渗透
+            → 转移到[后渗透](11-post-exploitation-persistence.md)
         ELSE:
             THEN 继续枚举
     ELSE:
@@ -265,7 +265,7 @@ nbtscan 192.168.1.0/24
             THEN 转移到步骤 5（横向移动）
         ELSE:
             THEN 枚举共享 → 查找敏感文件
-            THEN 尝试权限提升
+            THEN 尝试[权限提升](05-privilege-escalation.md)
     ELSE:
         THEN 返回步骤 3
     ↓
@@ -434,7 +434,7 @@ nbtscan 192.168.1.0/24
    ```
 
 4. **状态机判定**：获得 SYSTEM shell
-   - 转移到：凭据提取
+   - 转移到：[凭据提取](06-credential-extraction.md)
 
 5. **第三步：提取凭据**
    ```bash
@@ -527,7 +527,7 @@ graph TD
 - 在锁定阈值内停止
 
 ### 2. SMB 签名
-**问题**：SMB 签名阻止中间人攻击
+**问题**：SMB 签名阻止[中间人攻击](10-network-sniffing-mitm.md)
 **解决**：
 - 检测签名状态：`nmap --script smb-security-mode`
 - 如果未强制签名，可以进行 NTLM relay
@@ -537,7 +537,7 @@ graph TD
 **问题**：445 端口被防火墙过滤
 **解决**：
 - 尝试 139 端口（NetBIOS over TCP）
-- 通过代理或隧道访问
+- 通过代理或[隧道](14-tunneling-pivoting.md)访问
 - 寻找其他攻击向量
 
 ---
@@ -545,12 +545,11 @@ graph TD
 ## 下一步状态机
 
 完成 SMB 枚举后，根据结果转移到：
-1. **Web 应用攻击状态机**（如果发现 IIS/Apache）
-2. **Active Directory 攻击状态机**（如果在域环境）
-3. **权限提升状态机**（如果获得低权限 shell）
-4. **凭据提取状态机**（如果获得管理员权限）
+1. **[Web 应用攻击](03-web-application-attack.md)状态机**（如果发现 IIS/Apache）
+2. **[Active Directory](04-active-directory-attack.md) 攻击状态机**（如果在域环境）
+3. **[权限提升](05-privilege-escalation.md)状态机**（如果获得低权限 shell）
+4. **[凭据提取](06-credential-extraction.md)状态机**（如果获得管理员权限）
 
 ---
 
-*文档生成时间：2026-03-22*
 *状态机类型：SMB 枚举与攻击*

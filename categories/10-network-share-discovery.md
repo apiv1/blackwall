@@ -14,3 +14,8 @@ SMB 共享枚举和权限检查工具
 ### [nbtscan](../tools/nbtscan.md)
 扫描 NetBIOS 名称信息
 
+---
+
+## 相关状态机
+
+- [SMB枚举与攻击](../state-machines/02-smb-enumeration-attack.md)

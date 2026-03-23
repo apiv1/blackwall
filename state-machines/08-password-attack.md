@@ -36,7 +36,7 @@ graph TD
     Q --> K
 
     F --> R{在线攻击类型}
-    R -->|暴力破解| S[hydra/medusa]
+    R -->|[暴力破解](09-brute-force-attack.md)| S[hydra/medusa]
     R -->|密码喷洒| T[crackmapexec]
     R -->|凭证填充| U[使用已知密码列表]
 
@@ -67,7 +67,7 @@ graph TD
 | 破解工具 | 在线查询 | 查询数据库 | 检查结果 | hash-lookup |
 | 检查结果 | 破解成功 | 提取密码 | 后续利用 | - |
 | 检查结果 | 破解失败 | 更换策略 | 字典选择 | - |
-| 在线攻击 | 暴力破解 | 逐个尝试 | 检查成功 | hydra, medusa |
+| 在线攻击 | [暴力破解](09-brute-force-attack.md) | 逐个尝试 | 检查成功 | hydra, medusa |
 | 在线攻击 | 密码喷洒 | 单密码多用户 | 检查成功 | crackmapexec |
 | 在线攻击 | 凭证填充 | 已知密码测试 | 检查成功 | hydra |
 
@@ -222,7 +222,7 @@ IF 字典效果不佳
    john --wordlist=custom.txt --rules --stdout > mutated.txt
    ```
 
-3. 暴力破解 Web 登录
+3. [暴力破解](09-brute-force-attack.md) Web 登录
    ```bash
    hydra -l admin -P mutated.txt target http-post-form "/login.php:username=^USER^&password=^PASS^:F=Login failed"
    ```

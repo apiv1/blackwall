@@ -8,7 +8,7 @@
 
 ## 原子工具状态映射
 
-### 1. linpeas - Linux 自动化提权枚举
+### 1. [linpeas](../tools/linpeas.md) - Linux 自动化提权枚举
 
 **能干什么**：
 全自动扫描 Linux 系统的提权向量，包括 SUID 文件、sudo 配置、内核漏洞、定时任务、环境变量等 200+ 检查项。
@@ -50,7 +50,7 @@
 
 ---
 
-### 2. winpeas - Windows 自动化提权枚举
+### 2. [winpeas](../tools/winpeas.md) - Windows 自动化提权枚举
 
 **能干什么**：
 Windows 版本的 linpeas，扫描注册表、服务配置、计划任务、UAC 设置、补丁级别等提权向量。
@@ -92,7 +92,7 @@ Windows 版本的 linpeas，扫描注册表、服务配置、计划任务、UAC 
 
 ---
 
-### 3. unix-privesc-check - Linux 提权检查脚本
+### 3. [unix-privesc-check](../tools/unix-privesc-check.md) - Linux 提权检查脚本
 
 **能干什么**：
 轻量级的 Linux 提权检查工具，比 linpeas 更简洁，适合快速检查。
@@ -700,13 +700,13 @@ graph TD
 获得 root/SYSTEM 权限
     ↓
     ├─ Linux:
-    │   ├─ 添加持久化后门（SSH 密钥、cron 任务）
+    │   ├─ 添加[持久化](11-post-exploitation-persistence.md)后门（SSH 密钥、cron 任务）
     │   ├─ 提取凭据（/etc/shadow、SSH 私钥）
     │   ├─ 查找敏感文件（数据库配置、API 密钥）
     │   └─ 横向移动（SSH 到其他主机）
     │
     └─ Windows:
-        ├─ 添加持久化后门（新用户、计划任务）
+        ├─ 添加[持久化](11-post-exploitation-persistence.md)后门（新用户、计划任务）
         ├─ 提取凭据（mimikatz、secretsdump）
         ├─ 查找敏感文件（浏览器密码、配置文件）
         └─ 横向移动（PSExec、WMI、RDP）
@@ -714,6 +714,5 @@ graph TD
 
 ---
 
-*文档生成时间：2026-03-22*
 *状态机类型：权限提升*
 *覆盖平台：Linux + Windows*

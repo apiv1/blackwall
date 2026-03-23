@@ -14,3 +14,8 @@ MySQL 命令行客户端
 ### [impacket-mssqlclient](../tools/impacket-mssqlclient.md)
 MSSQL 客户端，支持 Windows 认证
 
+---
+
+## 相关状态机
+
+- [数据库攻击](../state-machines/13-database-attack.md)

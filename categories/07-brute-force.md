@@ -17,3 +17,8 @@ Nmap 项目的网络认证破解工具
 ### [thc-pptp-bruter](../tools/thc-pptp-bruter.md)
 PPTP VPN 暴力破解工具
 
+---
+
+## 相关状态机
+
+- [暴力破解攻击](../state-machines/09-brute-force-attack.md)

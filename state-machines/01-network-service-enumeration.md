@@ -6,7 +6,7 @@
 
 ## 原子工具状态映射 (Atomic Tool-State Mapping)
 
-### 1. nmap - 端口扫描与服务识别
+### 1. [nmap](../tools/nmap.md) - 端口扫描与服务识别
 
 **触发状态 (Trigger)**：
 - 输入：目标 IP/域名/CIDR
@@ -28,9 +28,9 @@ nmap -A -T4 <target>
 - **如果输出包含开放端口** → 转移到：服务指纹识别（根据端口号选择专用工具）
   - 21 (FTP) → ftp 客户端枚举
   - 22 (SSH) → ssh 版本检测
-  - 80/443 (HTTP/HTTPS) → Web 扫描状态机
-  - 139/445 (SMB) → SMB 枚举状态机
-  - 3306 (MySQL) → 数据库枚举
+  - 80/443 (HTTP/HTTPS) → [Web 扫描状态机](03-web-application-attack.md)
+  - 139/445 (SMB) → [SMB 枚举状态机](02-smb-enumeration-attack.md)
+  - 3306 (MySQL) → [数据库枚举](13-database-attack.md)
   - 3389 (RDP) → RDP 连接测试
 
 - **如果输出 0 开放端口** → 转移到：
@@ -44,7 +44,7 @@ nmap -A -T4 <target>
 
 ---
 
-### 2. masscan - 超高速端口扫描
+### 2. [masscan](../tools/masscan.md) - 超高速端口扫描
 
 **触发状态 (Trigger)**：
 - 输入：大量 IP 或全端口扫描需求
@@ -65,7 +65,7 @@ masscan <target> -p1-65535 --rate 10000
 
 ---
 
-### 3. unicornscan - 异步扫描
+### 3. [unicornscan](../tools/unicornscan.md) - 异步扫描
 
 **触发状态 (Trigger)**：
 - 输入：nmap 被 IDS/防火墙拦截
@@ -86,7 +86,7 @@ unicornscan -mU <target>:1-1024
 
 ---
 
-### 4. hping3 - 防火墙测试与隐蔽扫描
+### 4. [hping3](../tools/hping3.md) - 防火墙测试与隐蔽扫描
 
 **触发状态 (Trigger)**：
 - 输入：怀疑有防火墙/IDS
@@ -111,7 +111,7 @@ hping3 -S -p 80 -f <target>
 
 ---
 
-### 5. netdiscover - 本地网络主机发现
+### 5. [netdiscover](../tools/netdiscover.md) - 本地网络主机发现
 
 **触发状态 (Trigger)**：
 - 输入：在内网中，需要发现存活主机
@@ -132,7 +132,7 @@ netdiscover -p
 
 ---
 
-### 6. arping - ARP 层主机发现
+### 6. [arping](../tools/arping.md) - ARP 层主机发现
 
 **触发状态 (Trigger)**：
 - 输入：ICMP 被禁用，需要发现本地网络主机
@@ -150,7 +150,7 @@ arping -c 4 192.168.1.1
 
 ---
 
-### 7. fping - 批量 ICMP 探测
+### 7. [fping](../tools/fping.md) - 批量 ICMP 探测
 
 **触发状态 (Trigger)**：
 - 输入：需要快速发现大量 IP 的存活状态
@@ -196,9 +196,9 @@ fping -a -f targets.txt
 [步骤 4：根据服务类型分流]
     ├─ IF 21 (FTP) → FTP 枚举状态机
     ├─ IF 22 (SSH) → SSH 枚举
-    ├─ IF 80/443 (HTTP/HTTPS) → Web 扫描状态机
-    ├─ IF 139/445 (SMB) → SMB 枚举状态机
-    ├─ IF 3306 (MySQL) → 数据库枚举
+    ├─ IF 80/443 (HTTP/HTTPS) → [Web 扫描状态机](03-web-application-attack.md)
+    ├─ IF 139/445 (SMB) → [SMB 枚举状态机](02-smb-enumeration-attack.md)
+    ├─ IF 3306 (MySQL) → [数据库枚举](13-database-attack.md)
     ├─ IF 3389 (RDP) → RDP 枚举
     └─ IF 其他 → 查找对应工具
 ```
@@ -258,7 +258,7 @@ ELSE IF 目标是内网:
    ```
 
 2. **状态机判定**：发现 SSH 和 HTTP 服务
-   - 转移到：Web 扫描状态机（80 端口）
+   - 转移到：[Web 扫描状态机](03-web-application-attack.md)（80 端口）
    - 同时记录：SSH 版本（可能存在已知漏洞）
 
 3. **第二步：全端口扫描（后台运行）**
@@ -350,9 +350,9 @@ ELSE IF 目标是内网:
    ```
 
 6. **状态机判定**：根据服务分流
-   - 192.168.10.10 → SMB 枚举状态机
+   - 192.168.10.10 → [SMB 枚举状态机](02-smb-enumeration-attack.md)
    - 192.168.10.20 → Web 扫描状态机
-   - 192.168.10.30 → RDP 暴力破解
+   - 192.168.10.30 → RDP [暴力破解](09-brute-force-attack.md)
 
 **内化点 (Internalization)**：
 - **为什么先被动再主动？**
@@ -421,10 +421,8 @@ graph TD
 完成网络服务枚举后，根据发现的服务类型，转移到：
 1. **Web 扫描状态机**（80/443/8080 端口）
 2. **SMB 枚举状态机**（139/445 端口）
-3. **数据库枚举状态机**（3306/1433/5432 端口）
-4. **Active Directory 状态机**（88/389/636 端口）
+3. **[数据库枚举](13-database-attack.md)状态机**（3306/1433/5432 端口）
+4. **[Active Directory](04-active-directory-attack.md) 状态机**（88/389/636 端口）
 
 ---
-
-*文档生成时间：2026-03-22*
 *状态机类型：网络服务枚举*

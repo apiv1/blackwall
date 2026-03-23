@@ -11,3 +11,8 @@ GPU 加速的密码破解工具，支持 300+ 种哈希类型
 ### [ophcrack-cli](../tools/ophcrack-cli.md)
 基于彩虹表的 Windows 密码破解工具
 
+---
+
+## 相关状态机
+
+- [密码攻击](../state-machines/08-password-attack.md)

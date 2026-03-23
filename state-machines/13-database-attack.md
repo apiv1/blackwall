@@ -64,7 +64,7 @@ graph TD
 | 发现服务 | MSSQL 1433 | 识别为 MSSQL | MSSQL 攻击 | nmap |
 | 发现服务 | PostgreSQL 5432 | 识别为 PostgreSQL | PostgreSQL 攻击 | nmap |
 | 无凭证 | 默认凭证 | 测试默认密码 | 尝试连接 | hydra |
-| 无凭证 | 暴力破解 | 字典攻击 | 尝试连接 | hydra, medusa |
+| 无凭证 | [暴力破解](09-brute-force-attack.md) | 字典攻击 | 尝试连接 | hydra, medusa |
 | 无凭证 | SQL 注入 | 注入攻击 | 获得数据 | sqlmap |
 | 有凭证 | 连接成功 | 枚举数据库 | 数据列表 | mysql, mssqlclient |
 | 枚举完成 | 有敏感数据 | 导出数据 | 数据窃取 | mysqldump |
@@ -81,7 +81,7 @@ IF 发现 MySQL (3306)
     mysql -h target -u root -p
     # 常见密码: root, password, admin, mysql
 
-    # 暴力破解
+    # [暴力破解](09-brute-force-attack.md)
     hydra -l root -P /usr/share/wordlists/rockyou.txt mysql://target
 
     # 使用 Metasploit
@@ -96,7 +96,7 @@ ELSE IF 发现 MSSQL (1433)
     # 使用 impacket
     mssqlclient.py sa:password@target
 
-    # 暴力破解
+    # [暴力破解](09-brute-force-attack.md)
     hydra -l sa -P passwords.txt mssql://target
 
     # 使用 Metasploit

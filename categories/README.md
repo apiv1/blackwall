@@ -49,7 +49,7 @@
 ## 凭据访问 (Credential Access)
 
 ### [凭据访问 (Credential Access)](11-credential-access.md)
-包含工具：[responder](../tools/responder.md), [netexec (原 crackmapexec)](../tools/netexec-(原-crackmapexec).md)
+包含工具：[responder](../tools/responder.md), [netexec](../tools/netexec.md)
 
 ### [哈希识别 (Hash Identification)](12-hash-identification.md)
 包含工具：[hash-identifier](../tools/hash-identifier.md), [hashid](../tools/hashid.md)
@@ -90,7 +90,7 @@
 包含工具：[powershell-empire](../tools/powershell-empire.md), [starkiller](../tools/starkiller.md)
 
 ### [协议隧道 (Protocol Tunneling)](22-protocol-tunneling.md)
-包含工具：[proxychains4](../tools/proxychains4.md), [dns2tcpc/dns2tcpd](../tools/dns2tcpc-dns2tcpd.md), [iodine (iodine-client-start)](../tools/iodine-(iodine-client-start).md), [stunnel4](../tools/stunnel4.md), [ptunnel](../tools/ptunnel.md) 等
+包含工具：[proxychains4](../tools/proxychains4.md), [dns2tcpc/dns2tcpd](../tools/dns2tcpc-dns2tcpd.md), [iodine-client-start](../tools/iodine-client-start.md), [stunnel4](../tools/stunnel4.md), [ptunnel](../tools/ptunnel.md) 等
 
 ## 渗出 (Exfiltration)
 

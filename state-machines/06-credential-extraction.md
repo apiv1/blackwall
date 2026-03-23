@@ -2,13 +2,13 @@
 
 ## 概述
 
-凭据提取是后渗透阶段的核心任务，目标是从已控制的系统中提取密码、哈希、票据等认证凭据，用于横向移动和权限维持。本状态机覆盖 Windows 和 Linux 两大平台的凭据提取技术。
+凭据提取是[后渗透](11-post-exploitation-persistence.md)阶段的核心任务，目标是从已控制的系统中提取密码、哈希、票据等认证凭据，用于横向移动和权限维持。本状态机覆盖 Windows 和 Linux 两大平台的凭据提取技术。
 
 ---
 
 ## 原子工具状态映射
 
-### 1. mimikatz - Windows 凭据提取之王
+### 1. [mimikatz](../tools/mimikatz.md) - Windows 凭据提取之王
 
 **能干什么**：
 从 Windows 内存中提取明文密码、NTLM 哈希、Kerberos 票据，还能进行 Pass-the-Hash、Golden Ticket 等高级攻击。
@@ -189,10 +189,10 @@ sudo ./mimipenguin.sh --process gnome-keyring-daemon
 
 ---
 
-### 5. john - 密码哈希破解
+### 5. [john](../tools/john.md) - 密码哈希破解
 
 **能干什么**：
-破解各种格式的密码哈希，包括 NTLM、MD5、SHA、bcrypt 等，支持字典攻击和暴力破解。
+破解各种格式的密码哈希，包括 NTLM、MD5、SHA、bcrypt 等，支持字典攻击和[暴力破解](09-brute-force-attack.md)。
 
 **触发状态**：
 - 提取到密码哈希但无法直接使用
@@ -239,7 +239,7 @@ john --format=NT ntlm_hashes.txt
 
 ---
 
-### 6. hashcat - GPU 加速密码破解
+### 6. [hashcat](../tools/hashcat.md) - GPU 加速[密码破解](08-password-attack.md)
 
 **能干什么**：
 使用 GPU 加速破解密码哈希，速度比 john 快 10-100 倍，支持更多哈希格式。
@@ -495,7 +495,7 @@ impacket-psexec -hashes :4d3e99a654f8e4b7e1c8f5a2b3c4d5e6 'ACTIVE/SVC_TGS@10.10.
 
 ---
 
-### 场景 2：HTB 靶机 Linux 密码破解
+### 场景 2：HTB 靶机 Linux [密码破解](08-password-attack.md)
 
 **初始状态**：
 - 目标：HTB 靶机 "Lame"
@@ -783,6 +783,5 @@ graph TD
 
 ---
 
-*文档生成时间：2026-03-22*
 *状态机类型：凭据提取*
 *覆盖平台：Windows + Linux*

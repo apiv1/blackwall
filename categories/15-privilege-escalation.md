@@ -14,3 +14,8 @@ PEASS 工具套件（包含 linpeas 和 winpeas）
 ### [unix-privesc-check](../tools/unix-privesc-check.md)
 Unix/Linux 权限提升检查脚本
 
+---
+
+## 相关状态机
+
+- [权限提升](../state-machines/05-privilege-escalation.md)

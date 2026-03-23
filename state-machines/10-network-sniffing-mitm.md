@@ -29,7 +29,7 @@ graph TD
 
     L --> N{攻击目标}
     N -->|HTTP 流量| O[SSL 剥离]
-    N -->|凭证窃取| P[嗅探密码]
+    N -->|[凭证窃取](06-credential-extraction.md)| P[嗅探密码]
     N -->|会话劫持| Q[Cookie 窃取]
     N -->|流量篡改| R[注入恶意代码]
 
@@ -59,7 +59,7 @@ graph TD
 | 启动攻击 | 需要转发 | 启用 IP 转发 | 流量拦截 | sysctl |
 | 流量拦截 | HTTP 流量 | SSL 剥离 | 获得明文 | sslstrip |
 | 流量拦截 | 任意流量 | 嗅探分析 | 提取凭证 | wireshark, tcpdump |
-| 流量拦截 | 需要篡改 | 代理拦截 | 注入代码 | mitmproxy, bettercap |
+| 流量拦截 | 需要篡改 | [代理](14-tunneling-pivoting.md)拦截 | 注入代码 | mitmproxy, bettercap |
 | 获得凭证 | 有效凭证 | 验证权限 | 后续利用 | - |
 | 会话劫持 | 获得 Cookie | 重放会话 | 访问账户 | - |
 
@@ -240,7 +240,7 @@ IF 需要分析流量
    > arp.spoof on
    ```
 
-3. 启用 HTTP 代理和 SSL 剥离
+3. 启用 HTTP [代理](14-tunneling-pivoting.md)和 SSL 剥离
    ```
    > set http.proxy.sslstrip true
    > http.proxy on
@@ -369,7 +369,7 @@ IF 需要分析流量
 | **ettercap** | 综合 MITM | 功能全面，有 GUI | 较老，性能一般 | 快速 MITM 攻击 |
 | **bettercap** | 现代 MITM | 功能强大，模块化 | 学习曲线陡 | 高级 MITM 场景 |
 | **sslstrip** | SSL 剥离 | 专注 SSL 降级 | 需配合其他工具 | HTTPS 降级攻击 |
-| **mitmproxy** | HTTP 代理 | 流量篡改强大 | 需要配置复杂 | 精细流量控制 |
+| **mitmproxy** | HTTP [代理](14-tunneling-pivoting.md) | 流量篡改强大 | 需要配置复杂 | 精细流量控制 |
 | **wireshark** | 流量分析 | 分析能力最强 | 不主动攻击 | 流量分析和取证 |
 | **tcpdump** | 流量捕获 | 命令行，轻量 | 分析能力弱 | 快速流量捕获 |
 
