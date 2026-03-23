@@ -9,8 +9,11 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-ophcrack-cli [参数]
+# 命令行模式
+ophcrack-cli -t /path/to/tables -f hashes.txt
+
+# 从 SAM 文件
+ophcrack-cli -t /path/to/tables -s SAM
 ```
 
 ## 使用场景

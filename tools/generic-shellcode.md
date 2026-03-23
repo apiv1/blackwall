@@ -11,8 +11,9 @@ Metasploit 的通用 shellcode 生成工具
 
 ## 命令示例
 ```bash
-# 基本用法
-generic_* (shellcode 生成器) [参数]
+# 通用 shellcode
+# 在 msfvenom 中生成
+msfvenom -p generic/custom PAYLOADFILE=shellcode.bin -f c
 ```
 
 ## 使用场景

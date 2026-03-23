@@ -9,8 +9,17 @@ DNS 代理和欺骗工具
 
 ## 命令示例
 ```bash
-# 基本用法
-dnschef [参数]
+# 基本 DNS 欺骗
+dnschef --fakeip 192.168.1.100
+
+# 指定接口
+dnschef --interface 0.0.0.0 --fakeip 192.168.1.100
+
+# 指定域名
+dnschef --fakedomains target.com --fakeip 192.168.1.100
+
+# 使用配置文件
+dnschef --file dns.ini
 ```
 
 ## 使用场景

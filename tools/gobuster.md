@@ -10,8 +10,20 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-gobuster [参数]
+# 目录爆破
+gobuster dir -u http://target.com -w /usr/share/wordlists/dirb/common.txt
+
+# 指定文件扩展名
+gobuster dir -u http://target.com -w wordlist.txt -x php,html,txt
+
+# DNS 子域名爆破
+gobuster dns -d target.com -w subdomains.txt
+
+# 虚拟主机爆破
+gobuster vhost -u http://target.com -w vhosts.txt
+
+# 使用代理
+gobuster dir -u http://target.com -w wordlist.txt -p http://127.0.0.1:8080
 ```
 
 ## 使用场景

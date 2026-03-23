@@ -8,8 +8,17 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-kismet [参数]
+# 启动 Kismet
+kismet
+
+# 指定网卡
+kismet -c wlan0
+
+# 无 GUI 模式
+kismet_server
+
+# 访问 Web 界面
+# http://localhost:2501
 ```
 
 ## 使用场景

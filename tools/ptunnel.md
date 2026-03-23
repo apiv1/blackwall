@@ -9,8 +9,11 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-ptunnel [参数]
+# ICMP 隧道服务端
+ptunnel
+
+# ICMP 隧道客户端
+ptunnel -p proxy_ip -lp 8000 -da target_ip -dp 22
 ```
 
 ## 使用场景

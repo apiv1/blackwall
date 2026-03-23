@@ -21,8 +21,12 @@ SNMP 枚举工具，提取设备信息
 
 ## 命令示例
 ```bash
-# 基本用法
-SSL/TLS 工具 [参数]
+# SSL/TLS 工具
+# 使用 sslscan
+sslscan target.com:443
+
+# 使用 sslyze
+sslyze --regular target.com
 ```
 
 ## 使用场景

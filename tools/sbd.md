@@ -10,8 +10,11 @@ Secure Backdoor，加密的 netcat 替代品
 
 ## 命令示例
 ```bash
-# 基本用法
-sbd [参数]
+# 加密 netcat（监听）
+sbd -l -p 4444 -k password
+
+# 加密 netcat（连接）
+sbd 192.168.1.100 4444 -k password
 ```
 
 ## 使用场景

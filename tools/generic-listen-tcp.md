@@ -8,8 +8,10 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-generic_listen_tcp [参数]
+# TCP 监听 payload
+# 在 Metasploit 中使用
+use payload/generic/shell_bind_tcp
+set LPORT 4444
 ```
 
 ## 使用场景

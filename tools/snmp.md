@@ -12,8 +12,12 @@ SNMP 枚举工具，提取设备信息
 
 ## 命令示例
 ```bash
-# 基本用法
-SNMP 工具 [参数]
+# SNMP 工具
+# 使用 snmp-check
+snmp-check 192.168.1.100
+
+# 使用 onesixtyone
+onesixtyone -c community.txt 192.168.1.100
 ```
 
 ## 使用场景

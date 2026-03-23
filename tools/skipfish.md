@@ -5,12 +5,21 @@
 
 ## 核心参数
 - `-o`: 输出目录
-- `-S`: 指定字典
+- `-W`: 指定字典
 
 ## 命令示例
 ```bash
-# 基本用法
-skipfish [参数]
+# 基本扫描
+skipfish -o output_dir http://target.com
+
+# 使用字典
+skipfish -W /usr/share/skipfish/dictionaries/complete.wl -o output_dir http://target.com
+
+# 使用认证
+skipfish -A user:password -o output_dir http://target.com
+
+# 限制扫描深度
+skipfish -d 3 -o output_dir http://target.com
 ```
 
 ## 使用场景

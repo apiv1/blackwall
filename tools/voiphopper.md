@@ -9,8 +9,11 @@ VLAN 跳跃攻击工具，针对 VoIP 网络
 
 ## 命令示例
 ```bash
-# 基本用法
-voiphopper [参数]
+# VoIP VLAN 跳跃
+voiphopper -i eth0
+
+# 指定 VLAN
+voiphopper -i eth0 -c 100
 ```
 
 ## 使用场景

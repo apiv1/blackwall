@@ -9,8 +9,11 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-mactime [参数]
+# 生成时间线
+mactime -b body_file -d > timeline.csv
+
+# 指定时间范围
+mactime -b body_file -d 2024-01-01..2024-12-31
 ```
 
 ## 使用场景

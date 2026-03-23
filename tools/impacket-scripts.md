@@ -1,19 +1,29 @@
 # impacket-scripts
 
 ## 简介
-Impacket 工具集，包含多种 Windows 协议攻击工具
+Impacket 工具集合
 
 ## 核心参数
-无特定参数或使用默认参数
+- 各种脚本工具
 
 ## 命令示例
 ```bash
-# 基本用法
-impacket-scripts [参数]
+# 列出所有 impacket 工具
+ls /usr/bin/impacket-*
+
+# 常用工具：
+# impacket-psexec - 远程执行
+# impacket-smbserver - SMB 服务器
+# impacket-secretsdump - 凭据提取
+# impacket-GetNPUsers - Kerberos 用户枚举
+# impacket-GetUserSPNs - SPN 枚举
+
+# 示例：提取域凭据
+impacket-secretsdump domain/admin:password@192.168.1.100
 ```
 
 ## 使用场景
-Windows 渗透的必备工具集，几乎涵盖所有 Windows 协议攻击
+Windows 网络协议攻击工具集
 
 ## 所属分类
-- [Pass-the-Hash 攻击 (Pass-the-Hash)](../categories/13-pass-the-hash.md)
+- [横向移动 (Lateral Movement)](../categories/16-lateral-movement.md)

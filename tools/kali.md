@@ -8,8 +8,15 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-Kali 官方链接 [参数]
+# Kali Linux 系统工具
+# 更新系统
+apt update && apt upgrade
+
+# 安装工具
+apt install tool-name
+
+# 查看 Kali 版本
+cat /etc/os-release
 ```
 
 ## 使用场景

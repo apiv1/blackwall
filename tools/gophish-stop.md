@@ -8,8 +8,11 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-gophish-stop [参数]
+# 停止 Gophish 服务
+gophish-stop
+
+# 或手动停止
+pkill -f gophish
 ```
 
 ## 使用场景

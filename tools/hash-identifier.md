@@ -1,19 +1,25 @@
 # hash-identifier
 
 ## 简介
-识别未知哈希值的类型
+识别哈希类型的工具
 
 ## 核心参数
-无特定参数或使用默认参数
+- 交互式输入哈希值
 
 ## 命令示例
 ```bash
-# 基本用法
-hash-identifier [参数]
+# 启动交互模式
+hash-identifier
+
+# 从命令行识别
+echo "5f4dcc3b5aa765d61d8327deb882cf99" | hash-identifier
+
+# 识别文件中的哈希
+hash-identifier < hashes.txt
 ```
 
 ## 使用场景
-当你获取到哈希但不知道类型时，快速识别以便选择正确的破解工具
+识别未知哈希类型以选择正确的破解工具
 
 ## 所属分类
 - [哈希识别 (Hash Identification)](../categories/12-hash-identification.md)

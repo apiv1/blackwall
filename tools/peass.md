@@ -1,19 +1,28 @@
 # peass
 
 ## 简介
-PEASS 工具套件（包含 linpeas 和 winpeas）
+权限提升自动化枚举脚本套件（包含 linpeas 和 winpeas）
 
 ## 核心参数
-无特定参数或使用默认参数
+- 根据平台使用对应脚本
 
 ## 命令示例
 ```bash
-# 基本用法
-peass [参数]
+# Linux 上运行 linpeas
+./linpeas.sh
+
+# Windows 上运行 winpeas
+winpeas.exe
+
+# 全面扫描
+./linpeas.sh -a
+
+# 快速扫描
+winpeas.exe fast
 ```
 
 ## 使用场景
-权限提升枚举的标准工具集
+跨平台的权限提升枚举工具集
 
 ## 所属分类
 - [权限提升 (Privilege Escalation)](../categories/15-privilege-escalation.md)

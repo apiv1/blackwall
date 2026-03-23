@@ -9,8 +9,18 @@ WebDAV 客户端，类似 FTP 的文件传输
 
 ## 命令示例
 ```bash
-# 基本用法
-cadaver [参数]
+# 连接到 WebDAV 服务器
+cadaver http://target.com/webdav/
+
+# 使用认证连接
+cadaver http://target.com/webdav/
+# 输入用户名和密码
+
+# 常用命令（在 cadaver shell 中）
+# ls - 列出文件
+# get file.txt - 下载文件
+# put local.txt - 上传文件
+# mget *.txt - 批量下载
 ```
 
 ## 使用场景

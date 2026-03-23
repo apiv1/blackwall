@@ -10,8 +10,14 @@ SpiderFoot 的命令行版本
 
 ## 命令示例
 ```bash
-# 基本用法
-spiderfoot-cli [参数]
+# SpiderFoot 命令行
+spiderfoot-cli -s target.com
+
+# 指定模块
+spiderfoot-cli -s target.com -m sfp_dnsresolve
+
+# 输出到文件
+spiderfoot-cli -s target.com -o json > output.json
 ```
 
 ## 使用场景

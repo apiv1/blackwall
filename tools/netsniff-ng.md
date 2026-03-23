@@ -9,8 +9,14 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-netsniff-ng [参数]
+# 捕获流量
+netsniff-ng -i eth0 -o capture.pcap
+
+# 重放流量
+netsniff-ng -i eth0 --in capture.pcap
+
+# 详细输出
+netsniff-ng -i eth0 -V
 ```
 
 ## 使用场景

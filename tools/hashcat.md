@@ -11,8 +11,20 @@ GPU 加速的密码破解工具，支持 300+ 种哈希类型
 
 ## 命令示例
 ```bash
-# 基本用法
-hashcat [参数]
+# MD5 破解
+hashcat -m 0 -a 0 hash.txt /usr/share/wordlists/rockyou.txt
+
+# NTLM 破解
+hashcat -m 1000 -a 0 ntlm_hash.txt wordlist.txt
+
+# SHA256 破解
+hashcat -m 1400 -a 0 sha256_hash.txt wordlist.txt
+
+# 使用规则
+hashcat -m 0 -a 0 hash.txt wordlist.txt -r rules/best64.rule
+
+# 暴力破解（掩码攻击）
+hashcat -m 0 -a 3 hash.txt ?a?a?a?a?a?a
 ```
 
 ## 使用场景

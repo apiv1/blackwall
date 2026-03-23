@@ -8,8 +8,14 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-lbd [参数]
+# 检测负载均衡
+lbd target.com
+
+# 详细输出
+lbd -v target.com
+
+# 指定端口
+lbd target.com:8080
 ```
 
 ## 使用场景

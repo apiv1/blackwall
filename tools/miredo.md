@@ -8,8 +8,11 @@ Teredo IPv6 隧道客户端，通过 IPv4 NAT 建立 IPv6 连接
 
 ## 命令示例
 ```bash
-# 基本用法
-miredo [参数]
+# 启动 Miredo (IPv6 over IPv4)
+miredo
+
+# 停止 Miredo
+miredo-stop
 ```
 
 ## 使用场景

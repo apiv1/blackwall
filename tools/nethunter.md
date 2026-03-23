@@ -8,8 +8,9 @@ Kali NetHunter 移动渗透测试平台
 
 ## 命令示例
 ```bash
-# 基本用法
-NetHunter [参数]
+# Kali NetHunter 工具
+# 主要用于 Android 设备
+nethunter
 ```
 
 ## 使用场景

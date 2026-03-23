@@ -1,21 +1,39 @@
 # dnsrecon
 
 ## 简介
-多功能 DNS 侦察工具，支持区域传送、暴力破解、缓存嗅探
+强大的 DNS 枚举工具，支持多种查询类型
 
 ## 核心参数
-- `-d`: 指定目标域名
-- `-t`: 指定枚举类型（std、axfr、brt 等）
-- `-D`: 指定字典文件
+- `-d`: 指定域名
+- `-t`: 指定枚举类型
+- `-D`: 使用字典暴力破解
 
 ## 命令示例
 ```bash
-# 基本用法
-dnsrecon [参数]
+# 标准枚举
+dnsrecon -d target.com
+
+# 区域传送
+dnsrecon -d target.com -t axfr
+
+# 暴力破解子域名
+dnsrecon -d target.com -D /usr/share/wordlists/dnsmap.txt -t brt
+
+# 反向查询
+dnsrecon -r 192.168.1.0/24
+
+# 缓存嗅探
+dnsrecon -d target.com -t snoop
+
+# 所有记录类型
+dnsrecon -d target.com -t std
+
+# 输出到 XML
+dnsrecon -d target.com -x output.xml
 ```
 
 ## 使用场景
-当 DNS 服务器配置不当时，dnsrecon 能快速发现区域传送漏洞
+全面的 DNS 侦察，支持多种枚举技术
 
 ## 所属分类
 - [DNS 枚举 (DNS Enumeration)](../categories/02-dns-enumeration.md)

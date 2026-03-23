@@ -9,8 +9,14 @@ IPv6 网络探测工具
 
 ## 命令示例
 ```bash
-# 基本用法
-atk6-thcping6 [参数]
+# IPv6 ping
+atk6-thcping6 -I eth0 fe80::1
+
+# 扫描本地链路
+atk6-thcping6 -I eth0 ff02::1
+
+# 详细输出
+atk6-thcping6 -v -I eth0 fe80::1
 ```
 
 ## 使用场景

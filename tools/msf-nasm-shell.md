@@ -8,8 +8,12 @@ Metasploit 的汇编/反汇编交互式 shell
 
 ## 命令示例
 ```bash
-# 基本用法
-msf-nasm_shell [参数]
+# 启动 NASM shell
+msf-nasm_shell
+
+# 在 shell 中输入汇编指令
+# nasm > jmp esp
+# 输出对应的机器码
 ```
 
 ## 使用场景

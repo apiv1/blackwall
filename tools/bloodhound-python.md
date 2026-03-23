@@ -4,18 +4,34 @@
 BloodHound 的 Python 数据收集器，枚举 AD 关系
 
 ## 核心参数
+- `-u`: 用户名
+- `-p`: 密码
 - `-d`: 域名
-- `-u/-p`: 用户名/密码
-- `-c all`: 收集所有数据
+- `-c`: 收集类型
 
 ## 命令示例
 ```bash
-# 基本用法
-bloodhound-python [参数]
+# 基本收集
+bloodhound-python -u user -p password -d domain.com -ns 192.168.1.10
+
+# 收集所有信息
+bloodhound-python -u user -p password -d domain.com -ns 192.168.1.10 -c all
+
+# 只收集用户和组
+bloodhound-python -u user -p password -d domain.com -ns 192.168.1.10 -c group,user
+
+# 使用 NTLM 哈希
+bloodhound-python -u user --hashes :ntlm_hash -d domain.com -ns 192.168.1.10
+
+# 指定域控制器
+bloodhound-python -u user -p password -d domain.com -dc dc01.domain.com
+
+# 输出到指定目录
+bloodhound-python -u user -p password -d domain.com -ns 192.168.1.10 --zip
 ```
 
 ## 使用场景
-AD 渗透的必备工具，可视化域内权限关系，找到提权路径
+Active Directory 环境的关系枚举和攻击路径分析
 
 ## 所属分类
-- [Active Directory 攻击 (Active Directory)](../categories/23-active-directory.md)
+- [Active Directory](../categories/23-active-directory.md)

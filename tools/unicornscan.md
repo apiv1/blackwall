@@ -10,8 +10,23 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-unicornscan [参数]
+# TCP SYN 扫描
+unicornscan -mT 192.168.1.100:1-65535
+
+# UDP 扫描
+unicornscan -mU 192.168.1.100:1-1000
+
+# 详细输出
+unicornscan -Iv -mT 192.168.1.100:80,443,22
+
+# 扫描整个网段
+unicornscan -mT 192.168.1.0/24:80,443
+
+# 快速扫描常用端口
+unicornscan -mT 192.168.1.100:a
+
+# 指定速率
+unicornscan -r 1000 -mT 192.168.1.100:1-1000
 ```
 
 ## 使用场景

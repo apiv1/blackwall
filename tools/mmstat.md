@@ -8,8 +8,11 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-mmstat [参数]
+# 显示分区统计信息
+mmstat disk.img
+
+# 详细输出
+mmstat -v disk.img
 ```
 
 ## 使用场景

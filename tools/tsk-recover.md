@@ -8,8 +8,11 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-tsk_recover [参数]
+# 恢复文件
+tsk_recover -e disk.img output_dir
+
+# 恢复已删除文件
+tsk_recover -a disk.img output_dir
 ```
 
 ## 使用场景

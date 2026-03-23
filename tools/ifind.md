@@ -4,16 +4,23 @@
 通过文件名查找 inode
 
 ## 核心参数
-无特定参数或使用默认参数
+- 镜像文件
+- 文件名
 
 ## 命令示例
 ```bash
-# 基本用法
-ifind [参数]
+# 查找文件的 inode
+ifind disk.img -n filename
+
+# 在特定目录查找
+ifind disk.img -n filename -d 1234
+
+# 指定文件系统类型
+ifind -f ext4 disk.img -n filename
 ```
 
 ## 使用场景
-已知文件名，查找对应的 inode 号
+通过文件名查找对应的 inode 号
 
 ## 所属分类
-- [Sleuth Kit 取证工具套件 (Sleuth Kit Suite)](../categories/32-sleuth-kit-suite.md)
+- [Sleuth Kit 取证工具套件](../categories/32-sleuth-kit-suite.md)

@@ -11,8 +11,20 @@ Linux 下的 Windows/Samba 枚举工具，获取用户、共享、组信息
 
 ## 命令示例
 ```bash
-# 基本用法
-enum4linux [参数]
+# 全面枚举
+enum4linux -a 192.168.1.100
+
+# 只枚举用户
+enum4linux -U 192.168.1.100
+
+# 只枚举共享
+enum4linux -S 192.168.1.100
+
+# 枚举密码策略
+enum4linux -P 192.168.1.100
+
+# 使用凭据枚举
+enum4linux -u admin -p password -a 192.168.1.100
 ```
 
 ## 使用场景

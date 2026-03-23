@@ -9,8 +9,11 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-proxytunnel [参数]
+# 通过 HTTP 代理建立隧道
+proxytunnel -p proxy.com:8080 -d target.com:22 -a 5555
+
+# 使用认证
+proxytunnel -p proxy.com:8080 -P user:pass -d target.com:22 -a 5555
 ```
 
 ## 使用场景

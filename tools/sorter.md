@@ -8,8 +8,11 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-sorter [参数]
+# 文件分类
+sorter -d output_dir disk.img
+
+# 使用扩展名分类
+sorter -e -d output_dir disk.img
 ```
 
 ## 使用场景

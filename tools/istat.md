@@ -8,8 +8,11 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-istat [参数]
+# 显示 inode 详细信息
+istat disk.img 12345
+
+# 指定文件系统类型
+istat -f ext4 disk.img 12345
 ```
 
 ## 使用场景

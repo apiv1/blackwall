@@ -10,8 +10,12 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-PDF 取证 [参数]
+# PDF 工具集合
+# 使用 pdfid 分析
+pdfid file.pdf
+
+# 使用 pdf-parser 解析
+pdf-parser file.pdf
 ```
 
 ## 使用场景

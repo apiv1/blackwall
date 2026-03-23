@@ -8,8 +8,11 @@ Iodine DNS 隧道客户端启动脚本
 
 ## 命令示例
 ```bash
-# 基本用法
-iodine-client-start [参数]
+# 启动 DNS 隧道客户端
+iodine -f 192.168.99.1 tunnel.example.com
+
+# 指定密码
+iodine -f -P password 192.168.99.1 tunnel.example.com
 ```
 
 ## 使用场景

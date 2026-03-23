@@ -1,20 +1,23 @@
 # rsmangler
 
 ## 简介
-对现有字典进行变换和扩展
+基于输入单词生成变体密码字典
 
 ## 核心参数
-- `--file`: 输入字典文件
-- `--min/--max`: 最小/最大长度
+- 输入文件
+- 输出文件
 
 ## 命令示例
 ```bash
-# 基本用法
-rsmangler [参数]
+# 密码变体生成
+rsmangler --file input.txt --output wordlist.txt
+
+# 所有变换
+rsmangler --file input.txt --output wordlist.txt --all
 ```
 
 ## 使用场景
-当基础字典不够时，rsmangler 能生成常见变体（大小写、数字后缀等）
+基于目标信息生成定制化密码字典
 
 ## 所属分类
 - [密码字典生成 (Password Profiling & Wordlists)](../categories/09-password-profiling.md)

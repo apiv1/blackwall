@@ -10,8 +10,14 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-spiderfoot [参数]
+# 启动 SpiderFoot
+spiderfoot
+
+# 访问 Web 界面
+# http://localhost:5001
+
+# 命令行模式
+spiderfoot-cli -s target.com
 ```
 
 ## 使用场景

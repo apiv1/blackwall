@@ -1,20 +1,33 @@
 # impacket-mssqlclient
 
 ## 简介
-MSSQL 客户端，支持 Windows 认证
+MSSQL 客户端工具，支持 Windows 认证
 
 ## 核心参数
-- `domain/user:password@host`: 连接字符串
-- `-windows-auth`: Windows 认证
+- 格式：user:password@host
+- `-windows-auth`: 使用 Windows 认证
 
 ## 命令示例
 ```bash
-# 基本用法
-impacket-mssqlclient [参数]
+# 基本连接
+impacket-mssqlclient user:password@192.168.1.100
+
+# Windows 认证
+impacket-mssqlclient domain/user:password@192.168.1.100 -windows-auth
+
+# 使用哈希认证
+impacket-mssqlclient user@192.168.1.100 -hashes :ntlm_hash
+
+# 指定数据库
+impacket-mssqlclient user:password@192.168.1.100 -db master
+
+# 执行命令
+impacket-mssqlclient user:password@192.168.1.100 -windows-auth
+# SQL> xp_cmdshell whoami
 ```
 
 ## 使用场景
-连接 MSSQL 数据库，利用 xp_cmdshell 执行系统命令
+连接和利用 MSSQL 数据库
 
 ## 所属分类
 - [数据库工具 (Databases)](../categories/29-databases.md)

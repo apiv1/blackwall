@@ -8,8 +8,8 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-tsk_comparedir [参数]
+# 比较目录
+tsk_comparedir disk.img /path/to/dir
 ```
 
 ## 使用场景

@@ -5,13 +5,28 @@
 
 ## 核心参数
 - `-d`: 指定目标域名
-- `-b`: 指定数据源（google、bing、linkedin 等）
+- `-b`: 指定数据源
 - `-l`: 限制搜索结果数量
 
 ## 命令示例
 ```bash
-# 基本用法
-theHarvester [参数]
+# 使用 Google 搜索
+theHarvester -d target.com -b google
+
+# 使用多个数据源
+theHarvester -d target.com -b google,bing,linkedin
+
+# 限制结果数量
+theHarvester -d target.com -b google -l 500
+
+# 使用所有数据源
+theHarvester -d target.com -b all
+
+# 输出到文件
+theHarvester -d target.com -b google -f output
+
+# 使用 Shodan
+theHarvester -d target.com -b shodan
 ```
 
 ## 使用场景

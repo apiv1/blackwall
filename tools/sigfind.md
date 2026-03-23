@@ -8,8 +8,11 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-sigfind [参数]
+# 查找文件签名
+sigfind 504B0304 disk.img
+
+# 指定偏移量
+sigfind -o 512 504B0304 disk.img
 ```
 
 ## 使用场景

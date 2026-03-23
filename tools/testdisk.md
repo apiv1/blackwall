@@ -8,8 +8,14 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-testdisk [参数]
+# 启动 TestDisk
+testdisk
+
+# 恢复分区
+testdisk /dev/sdb
+
+# 非交互模式
+testdisk /list
 ```
 
 ## 使用场景

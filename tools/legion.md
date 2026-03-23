@@ -8,8 +8,11 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-legion [参数]
+# 启动 Legion
+legion
+
+# 或使用 Python
+python3 /usr/share/legion/legion.py
 ```
 
 ## 使用场景

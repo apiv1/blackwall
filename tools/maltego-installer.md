@@ -10,8 +10,11 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-maltego (installer) [参数]
+# 安装 Maltego
+maltego-installer
+
+# 或直接启动
+maltego
 ```
 
 ## 使用场景

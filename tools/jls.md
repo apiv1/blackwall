@@ -8,8 +8,11 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-jls [参数]
+# 列出日志条目
+jls disk.img
+
+# 详细输出
+jls -v disk.img
 ```
 
 ## 使用场景

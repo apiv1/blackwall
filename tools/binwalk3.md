@@ -4,16 +4,25 @@
 binwalk 的 Python 3 版本
 
 ## 核心参数
-无特定参数或使用默认参数
+- 与 binwalk 相同
 
 ## 命令示例
 ```bash
-# 基本用法
-binwalk3 [参数]
+# 基本扫描
+binwalk3 firmware.bin
+
+# 自动提取
+binwalk3 -e firmware.bin
+
+# 递归扫描
+binwalk3 -M firmware.bin
+
+# 显示熵值
+binwalk3 -E firmware.bin
 ```
 
 ## 使用场景
-新版本，兼容性更好
+固件分析和文件提取（Python 3 版本）
 
 ## 所属分类
 - [取证工具 (Forensics)](../categories/25-forensics.md)

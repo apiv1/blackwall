@@ -10,8 +10,23 @@ WordPress 专用漏洞扫描器，枚举插件、主题、用户
 
 ## 命令示例
 ```bash
-# 基本用法
-wpscan [参数]
+# 基本扫描
+wpscan --url http://target.com
+
+# 枚举用户
+wpscan --url http://target.com --enumerate u
+
+# 枚举插件和主题
+wpscan --url http://target.com --enumerate p,t
+
+# 枚举所有内容
+wpscan --url http://target.com --enumerate ap,at,u
+
+# 使用 API token 获取漏洞信息
+wpscan --url http://target.com --api-token YOUR_TOKEN
+
+# 暴力破解用户密码
+wpscan --url http://target.com -U admin -P /usr/share/wordlists/rockyou.txt
 ```
 
 ## 使用场景

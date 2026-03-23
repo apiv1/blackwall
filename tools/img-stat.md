@@ -1,19 +1,22 @@
-# img_stat
+# img-stat
 
 ## 简介
-显示镜像文件信息
+显示镜像文件统计信息
 
 ## 核心参数
-无特定参数或使用默认参数
+- 镜像文件
 
 ## 命令示例
 ```bash
-# 基本用法
-img_stat [参数]
+# 显示镜像信息
+img_stat disk.img
+
+# 详细输出
+img_stat -v disk.img
 ```
 
 ## 使用场景
-查看镜像文件的元数据和格式信息
+获取磁盘镜像的元数据
 
 ## 所属分类
-- [Sleuth Kit 取证工具套件 (Sleuth Kit Suite)](../categories/32-sleuth-kit-suite.md)
+- [Sleuth Kit 取证工具套件](../categories/32-sleuth-kit-suite.md)

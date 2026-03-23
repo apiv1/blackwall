@@ -8,8 +8,11 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-mmcat [参数]
+# 输出内存管理单元内容
+mmcat disk.img 1
+
+# 输出到文件
+mmcat disk.img 1 > output.bin
 ```
 
 ## 使用场景

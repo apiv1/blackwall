@@ -1,20 +1,29 @@
 # ils
 
 ## 简介
-列出 inode 信息（包括已删除）
+列出 inode 信息
 
 ## 核心参数
-- `-e`: 显示所有 inode
-- `-r`: 恢复模式
+- 镜像文件
+- `-r`: 显示已删除文件
 
 ## 命令示例
 ```bash
-# 基本用法
-ils [参数]
+# 列出所有 inode
+ils disk.img
+
+# 只显示已删除文件的 inode
+ils -r disk.img
+
+# 指定文件系统类型
+ils -f ext4 disk.img
+
+# 输出到文件
+ils -r disk.img > deleted_inodes.txt
 ```
 
 ## 使用场景
-找到已删除文件的 inode，配合 icat 恢复
+查找已删除文件的 inode
 
 ## 所属分类
-- [Sleuth Kit 取证工具套件 (Sleuth Kit Suite)](../categories/32-sleuth-kit-suite.md)
+- [Sleuth Kit 取证工具套件](../categories/32-sleuth-kit-suite.md)

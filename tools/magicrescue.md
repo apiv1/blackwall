@@ -9,8 +9,14 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-magicrescue [参数]
+# 恢复特定文件类型
+magicrescue -r jpeg -d output_dir disk.img
+
+# 恢复多种类型
+magicrescue -r jpeg -r png -d output_dir disk.img
+
+# 从设备恢复
+magicrescue -r jpeg -d output_dir /dev/sdb1
 ```
 
 ## 使用场景

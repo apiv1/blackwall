@@ -1,19 +1,26 @@
-# faraday-stop / gophish-stop
+# faraday-stop-gophish-stop
 
 ## 简介
-停止 Faraday 和 Gophish 服务的快捷命令
+停止 Faraday 和 Gophish 服务的脚本
 
 ## 核心参数
-无特定参数或使用默认参数
+- 无参数
 
 ## 命令示例
 ```bash
-# 基本用法
-faraday-stop / gophish-stop [参数]
+# 停止 Faraday
+faraday-stop
+
+# 停止 Gophish
+gophish-stop
+
+# 或手动停止服务
+pkill -f faraday
+pkill -f gophish
 ```
 
 ## 使用场景
-快速停止后台运行的服务
+停止运行中的 Faraday 或 Gophish 服务
 
 ## 所属分类
 - [报告工具 (Reporting Tools)](../categories/30-reporting-tools.md)

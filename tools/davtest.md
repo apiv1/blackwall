@@ -9,8 +9,17 @@ WebDAV 服务器测试工具，尝试上传各种文件类型
 
 ## 命令示例
 ```bash
-# 基本用法
-davtest [参数]
+# 测试 WebDAV 服务器
+davtest -url http://target.com/webdav/
+
+# 使用认证
+davtest -url http://target.com/webdav/ -auth user:password
+
+# 指定上传目录
+davtest -url http://target.com/webdav/ -directory test
+
+# 清理测试文件
+davtest -url http://target.com/webdav/ -cleanup
 ```
 
 ## 使用场景

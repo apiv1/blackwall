@@ -1,21 +1,28 @@
 # faraday
 
 ## 简介
-协作式渗透测试 IDE，整合多种工具的输出
+渗透测试协作平台和报告工具
 
 ## 核心参数
-- Web 界面操作（默认端口 5985）
-- 自动解析 nmap、nikto、burp 等工具输出
-- 支持多用户协作
+- Web 界面操作
 
 ## 命令示例
 ```bash
-# 基本用法
-faraday [参数]
+# 启动 Faraday 服务器
+faraday-server
+
+# 启动 Faraday 客户端
+faraday-client
+
+# 访问 Web 界面
+# 默认地址：http://localhost:5985
+
+# 命令行模式
+faraday-cli
 ```
 
 ## 使用场景
-团队协作时管理渗透测试项目，自动导入工具结果，统一管理漏洞和主机信息
+渗透测试项目管理和报告生成
 
 ## 所属分类
 - [报告工具 (Reporting Tools)](../categories/30-reporting-tools.md)

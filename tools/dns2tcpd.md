@@ -9,12 +9,23 @@ DNS 隧道服务端
 
 ## 命令示例
 ```bash
-# 基本用法
-dns2tcpd [参数]
+# 使用配置文件运行
+dns2tcpd -f /etc/dns2tcpd.conf
+
+# 前台运行
+dns2tcpd -F -f /etc/dns2tcpd.conf
+
+# 配置文件示例
+cat > dns2tcpd.conf << 'CONFIG'
+listen = 0.0.0.0
+port = 53
+domain = tunnel.example.com
+resources = ssh:127.0.0.1:22
+CONFIG
 ```
 
 ## 使用场景
-在外网搭建 DNS 隧道服务器，接收内网传出的数据
+搭建 DNS 隧道服务器
 
 ## 所属分类
 - [协议隧道 (Protocol Tunneling)](../categories/22-protocol-tunneling.md)

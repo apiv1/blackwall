@@ -9,8 +9,14 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-recordmydesktop [参数]
+# 录制桌面
+recordmydesktop
+
+# 指定输出文件
+recordmydesktop -o output.ogv
+
+# 录制特定区域
+recordmydesktop --width 1920 --height 1080
 ```
 
 ## 使用场景

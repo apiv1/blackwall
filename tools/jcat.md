@@ -8,8 +8,11 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-jcat [参数]
+# 显示日志内容
+jcat disk.img 12345
+
+# 输出到文件
+jcat disk.img 12345 > journal.txt
 ```
 
 ## 使用场景

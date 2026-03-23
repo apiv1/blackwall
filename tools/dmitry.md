@@ -4,13 +4,31 @@
 深度信息收集工具，整合 WHOIS、子域名、邮箱、端口扫描
 
 ## 核心参数
-- `-winsepo`: 全功能扫描（WHOIS、子域名、邮箱、端口）
-- `-o`: 输出到文件
+- `-w`: WHOIS 查询
+- `-i`: IP WHOIS 查询
+- `-n`: 子域名搜索
+- `-e`: 邮箱搜索
+- `-p`: 端口扫描
 
 ## 命令示例
 ```bash
-# 基本用法
-dmitry [参数]
+# 全功能扫描
+dmitry -winsepo target.com
+
+# WHOIS 查询
+dmitry -w target.com
+
+# 子域名搜索
+dmitry -n target.com
+
+# 邮箱搜索
+dmitry -e target.com
+
+# 端口扫描
+dmitry -p target.com
+
+# 输出到文件
+dmitry -o output.txt -winsepo target.com
 ```
 
 ## 使用场景

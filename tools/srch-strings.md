@@ -8,8 +8,14 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-srch_strings [参数]
+# 搜索字符串
+srch_strings disk.img
+
+# 最小长度
+srch_strings -n 10 disk.img
+
+# Unicode 字符串
+srch_strings -e l disk.img
 ```
 
 ## 使用场景

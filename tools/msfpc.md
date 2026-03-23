@@ -8,8 +8,14 @@ MSF Payload Creator，快速生成各种 payload
 
 ## 命令示例
 ```bash
-# 基本用法
-msfpc [参数]
+# 生成 payload
+msfpc windows
+
+# 指定 IP 和端口
+msfpc windows 192.168.1.100 4444
+
+# 生成 Linux payload
+msfpc linux 192.168.1.100 4444
 ```
 
 ## 使用场景

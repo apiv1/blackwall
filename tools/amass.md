@@ -10,8 +10,23 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-amass [参数]
+# 基本子域名枚举
+amass enum -d target.com
+
+# 被动枚举（不主动探测）
+amass enum -passive -d target.com
+
+# 启用暴力破解
+amass enum -brute -d target.com
+
+# 使用所有技术枚举
+amass enum -active -d target.com
+
+# 输出到文件
+amass enum -d target.com -o subdomains.txt
+
+# 使用配置文件
+amass enum -d target.com -config config.ini
 ```
 
 ## 使用场景

@@ -8,8 +8,12 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-faraday-stop [参数]
+# 停止 Faraday 服务
+faraday-stop
+
+# 或手动停止
+pkill -f faraday-server
+pkill -f faraday-client
 ```
 
 ## 使用场景

@@ -11,8 +11,20 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-nikto [参数]
+# 基本扫描
+nikto -h http://target.com
+
+# 扫描指定端口
+nikto -h http://target.com:8080
+
+# 使用代理
+nikto -h http://target.com -useproxy http://127.0.0.1:8080
+
+# 扫描 HTTPS
+nikto -h https://target.com
+
+# 输出到文件
+nikto -h http://target.com -o scan_results.html -Format html
 ```
 
 ## 使用场景

@@ -10,8 +10,17 @@ SMTP 测试工具，发送测试邮件
 
 ## 命令示例
 ```bash
-# 基本用法
-swaks [参数]
+# 发送测试邮件
+swaks --to user@target.com --from test@example.com
+
+# SMTP 认证
+swaks --to user@target.com --from test@example.com --auth-user admin --auth-password pass
+
+# 指定服务器
+swaks --to user@target.com --server 192.168.1.100
+
+# 发送附件
+swaks --to user@target.com --attach file.pdf
 ```
 
 ## 使用场景

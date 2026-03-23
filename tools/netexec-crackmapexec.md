@@ -13,8 +13,14 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-netexec (原 crackmapexec) [参数]
+# NetExec (原 CrackMapExec)
+netexec smb 192.168.1.100 -u admin -p password
+
+# 批量测试
+netexec smb 192.168.1.0/24 -u admin -p password
+
+# Pass-the-Hash
+netexec smb 192.168.1.100 -u admin -H ntlm_hash
 ```
 
 ## 使用场景

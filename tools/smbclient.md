@@ -10,8 +10,20 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-smbclient [参数]
+# 列出共享
+smbclient -L //192.168.1.100 -N
+
+# 连接到共享（无密码）
+smbclient //192.168.1.100/share -N
+
+# 使用凭据连接
+smbclient //192.168.1.100/share -U username
+
+# 执行命令
+smbclient //192.168.1.100/share -U username -c "ls"
+
+# 下载文件
+smbclient //192.168.1.100/share -U username -c "get file.txt"
 ```
 
 ## 使用场景

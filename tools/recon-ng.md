@@ -10,8 +10,15 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-recon-ng [参数]
+# 启动 Recon-ng
+recon-ng
+
+# 在 recon-ng 中：
+# marketplace search - 搜索模块
+# marketplace install all - 安装所有模块
+# modules load recon/domains-hosts/google_site_web - 加载模块
+# options set SOURCE target.com - 设置目标
+# run - 运行模块
 ```
 
 ## 使用场景

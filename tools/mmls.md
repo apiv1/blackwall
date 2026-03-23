@@ -8,8 +8,14 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-mmls [参数]
+# 列出分区表
+mmls disk.img
+
+# 详细输出
+mmls -v disk.img
+
+# 指定分区表类型
+mmls -t dos disk.img
 ```
 
 ## 使用场景

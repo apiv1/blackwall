@@ -8,8 +8,16 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-其他 Sleuth Kit 工具 [参数]
+# Sleuth Kit 工具集
+# 列出文件
+fls disk.img
+
+# 提取文件
+icat disk.img 12345 > file.txt
+
+# 时间线分析
+fls -r -m / disk.img > bodyfile
+mactime -b bodyfile -d > timeline.csv
 ```
 
 ## 使用场景

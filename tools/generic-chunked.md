@@ -8,8 +8,9 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-generic_chunked [参数]
+# Metasploit payload 相关
+# 通常在 msfvenom 中使用
+msfvenom -p generic/custom PAYLOADFILE=payload.bin -f exe
 ```
 
 ## 使用场景

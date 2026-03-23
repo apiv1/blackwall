@@ -8,8 +8,14 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-wash [参数]
+# 扫描 WPS 网络
+wash -i wlan0mon
+
+# 显示所有网络
+wash -i wlan0mon -a
+
+# 详细输出
+wash -i wlan0mon -v
 ```
 
 ## 使用场景

@@ -9,8 +9,14 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-tcpreplay [参数]
+# 重放 pcap 文件
+tcpreplay -i eth0 capture.pcap
+
+# 指定速度
+tcpreplay -i eth0 -M 10 capture.pcap
+
+# 修改 MAC 地址
+tcpreplay -i eth0 --enet-dmac=00:11:22:33:44:55 capture.pcap
 ```
 
 ## 使用场景

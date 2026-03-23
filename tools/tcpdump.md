@@ -11,8 +11,23 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-tcpdump [参数]
+# 捕获所有流量
+tcpdump -i eth0
+
+# 捕获并保存到文件
+tcpdump -i eth0 -w capture.pcap
+
+# 捕获特定主机的流量
+tcpdump -i eth0 host 192.168.1.100
+
+# 捕获特定端口的流量
+tcpdump -i eth0 port 80
+
+# 捕获 HTTP 流量
+tcpdump -i eth0 'tcp port 80'
+
+# 读取 pcap 文件
+tcpdump -r capture.pcap
 ```
 
 ## 使用场景

@@ -11,8 +11,20 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-john [参数]
+# 基本破解
+john hash.txt
+
+# 使用字典
+john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+
+# 显示已破解的密码
+john --show hash.txt
+
+# 破解 ZIP 文件密码
+zip2john file.zip > hash.txt && john hash.txt
+
+# 破解 SSH 私钥密码
+ssh2john id_rsa > hash.txt && john hash.txt
 ```
 
 ## 使用场景

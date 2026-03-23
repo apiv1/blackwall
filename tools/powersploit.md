@@ -8,8 +8,12 @@ PowerShell 后渗透框架
 
 ## 命令示例
 ```bash
-# 基本用法
-powersploit [参数]
+# PowerSploit 模块位置
+ls /usr/share/powersploit/
+
+# 使用示例（在 PowerShell 中）
+# Import-Module /usr/share/powersploit/Recon/PowerView.ps1
+# Get-NetDomain
 ```
 
 ## 使用场景

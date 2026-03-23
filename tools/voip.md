@@ -10,8 +10,12 @@ VoIP VLAN 跳跃工具，通过 CDP/LLDP 协议跳到语音 VLAN
 
 ## 命令示例
 ```bash
-# 基本用法
-VoIP 工具 [参数]
+# VoIP 工具
+# 使用 voiphopper
+voiphopper -i eth0
+
+# SIP 扫描
+sipvicious
 ```
 
 ## 使用场景

@@ -9,8 +9,11 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-spooftooph [参数]
+# 蓝牙 MAC 欺骗
+spooftooph -i hci0 -a 00:11:22:33:44:55
+
+# 随机 MAC
+spooftooph -i hci0 -r
 ```
 
 ## 使用场景

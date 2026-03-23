@@ -4,16 +4,23 @@
 在哈希数据库中查找哈希值
 
 ## 核心参数
-无特定参数或使用默认参数
+- 数据库文件
+- 哈希值
 
 ## 命令示例
 ```bash
-# 基本用法
-hfind [参数]
+# 查找哈希
+hfind hashdb.txt 5d41402abc4b2a76b9719d911017c592
+
+# 从文件读取哈希
+hfind hashdb.txt -f hashes.txt
+
+# 使用 NSRL 数据库
+hfind /path/to/nsrl/NSRLFile.txt hash_value
 ```
 
 ## 使用场景
-快速查找已知文件的哈希（如 NSRL 数据库）
+在已知文件哈希数据库中查找
 
 ## 所属分类
-- [Sleuth Kit 取证工具套件 (Sleuth Kit Suite)](../categories/32-sleuth-kit-suite.md)
+- [Sleuth Kit 取证工具套件](../categories/32-sleuth-kit-suite.md)

@@ -9,8 +9,14 @@ Windows PowerShell 命令行环境（Linux 版）
 
 ## 命令示例
 ```bash
-# 基本用法
-PowerShell [参数]
+# PowerShell (Linux)
+pwsh
+
+# 执行命令
+pwsh -Command "Get-Process"
+
+# 执行脚本
+pwsh -File script.ps1
 ```
 
 ## 使用场景

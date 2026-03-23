@@ -10,8 +10,23 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-dirb [参数]
+# 基本扫描（使用默认字典）
+dirb http://target.com
+
+# 使用自定义字典
+dirb http://target.com /usr/share/wordlists/dirb/common.txt
+
+# 非递归扫描
+dirb http://target.com -r
+
+# 添加延迟避免 WAF
+dirb http://target.com -z 100
+
+# 保存结果到文件
+dirb http://target.com -o results.txt
+
+# 使用代理
+dirb http://target.com -p http://127.0.0.1:8080
 ```
 
 ## 使用场景

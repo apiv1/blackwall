@@ -1,22 +1,40 @@
 # smbmap
 
 ## 简介
-SMB 共享枚举工具，检查共享权限
+SMB 共享枚举和权限检查工具
 
 ## 核心参数
 - `-H`: 目标主机
 - `-u/-p`: 用户名/密码
 - `-r`: 递归列出目录
-- `--download`: 下载文件
+- `-x`: 执行命令
 
 ## 命令示例
 ```bash
-# 基本用法
-smbmap [参数]
+# 匿名枚举共享
+smbmap -H 192.168.1.100
+
+# 使用凭据枚举
+smbmap -H 192.168.1.100 -u username -p password
+
+# 递归列出共享内容
+smbmap -H 192.168.1.100 -u username -p password -r share_name
+
+# 下载文件
+smbmap -H 192.168.1.100 -u username -p password --download 'share\file.txt'
+
+# 上传文件
+smbmap -H 192.168.1.100 -u username -p password --upload '/local/file.txt' 'share\file.txt'
+
+# 执行命令
+smbmap -H 192.168.1.100 -u username -p password -x 'whoami'
+
+# 使用哈希认证
+smbmap -H 192.168.1.100 -u username -p 'aad3b435b51404eeaad3b435b51404ee:hash'
 ```
 
 ## 使用场景
-快速发现可读写的 SMB 共享，找到敏感文件
+SMB 共享权限检查和文件操作
 
 ## 所属分类
-- [Pass-the-Hash 攻击 (Pass-the-Hash)](../categories/13-pass-the-hash.md)
+- [网络共享发现 (Network Share Discovery)](../categories/10-network-share-discovery.md)

@@ -10,8 +10,17 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-wafw00f [参数]
+# 检测 WAF
+wafw00f http://target.com
+
+# 测试所有 WAF
+wafw00f -a http://target.com
+
+# 详细输出
+wafw00f -v http://target.com
+
+# 从文件读取 URL
+wafw00f -i urls.txt
 ```
 
 ## 使用场景

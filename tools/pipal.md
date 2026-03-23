@@ -8,8 +8,14 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-pipal [参数]
+# 分析密码字典
+pipal passwords.txt
+
+# 输出到文件
+pipal passwords.txt > analysis.txt
+
+# 详细分析
+pipal -v passwords.txt
 ```
 
 ## 使用场景

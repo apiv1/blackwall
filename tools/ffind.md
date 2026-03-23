@@ -1,19 +1,26 @@
 # ffind
 
 ## 简介
-通过 inode 查找文件名
+按文件名查找文件（Sleuth Kit）
 
 ## 核心参数
-无特定参数或使用默认参数
+- 镜像文件
+- 文件名
 
 ## 命令示例
 ```bash
-# 基本用法
-ffind [参数]
+# 查找文件
+ffind disk.img filename
+
+# 按 inode 查找
+ffind disk.img 12345
+
+# 指定文件系统类型
+ffind -f ext4 disk.img filename
 ```
 
 ## 使用场景
-已知 inode 号，查找对应的文件路径
+在磁盘镜像中查找文件
 
 ## 所属分类
-- [Sleuth Kit 取证工具套件 (Sleuth Kit Suite)](../categories/32-sleuth-kit-suite.md)
+- [Sleuth Kit 取证工具套件](../categories/32-sleuth-kit-suite.md)

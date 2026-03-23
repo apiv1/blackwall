@@ -9,8 +9,17 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-nbtscan [参数]
+# 扫描 C 段
+nbtscan 192.168.1.0/24
+
+# 详细输出
+nbtscan -v 192.168.1.0/24
+
+# 输出到文件
+nbtscan 192.168.1.0/24 > nbtscan_results.txt
+
+# 指定超时
+nbtscan -t 2 192.168.1.0/24
 ```
 
 ## 使用场景

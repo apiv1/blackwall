@@ -8,8 +8,14 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-burpsuite [参数]
+# 启动 Burp Suite（GUI）
+burpsuite
+
+# 使用命令行模式
+burpsuite --project-file=project.burp
+
+# 无头模式运行扫描
+burpsuite --project-file=project.burp --config-file=config.json
 ```
 
 ## 使用场景

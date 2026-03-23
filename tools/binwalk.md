@@ -4,18 +4,33 @@
 固件分析工具，提取嵌入式文件系统
 
 ## 核心参数
-- `-e`: 自动提取文件
+- `-e`: 自动提取
 - `-M`: 递归扫描
-- `--dd`: 提取指定类型
+- `-D`: 指定提取类型
 
 ## 命令示例
 ```bash
-# 基本用法
-binwalk [参数]
+# 基本扫描
+binwalk firmware.bin
+
+# 自动提取文件
+binwalk -e firmware.bin
+
+# 递归扫描
+binwalk -M firmware.bin
+
+# 提取特定类型
+binwalk -D 'filesystem:ext' firmware.bin
+
+# 显示熵值
+binwalk -E firmware.bin
+
+# 详细输出
+binwalk -v firmware.bin
 ```
 
 ## 使用场景
-分析路由器固件，提取文件系统，寻找硬编码密码
+固件逆向和嵌入式文件系统提取
 
 ## 所属分类
 - [取证工具 (Forensics)](../categories/25-forensics.md)

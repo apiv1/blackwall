@@ -9,8 +9,11 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-pixiewps [参数]
+# Pixie Dust 攻击
+pixiewps -e pke -r pkr -s hash1 -z hash2
+
+# 从 Reaver 输出使用
+pixiewps -e <PKE> -r <PKR> -s <E-Hash1> -z <E-Hash2> -a <E-S1> -n <E-Nonce>
 ```
 
 ## 使用场景

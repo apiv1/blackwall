@@ -9,8 +9,14 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-scalpel [参数]
+# 恢复文件
+scalpel disk.img -o output_dir
+
+# 使用配置文件
+scalpel -c scalpel.conf disk.img -o output_dir
+
+# 详细输出
+scalpel -v disk.img -o output_dir
 ```
 
 ## 使用场景

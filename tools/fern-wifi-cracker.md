@@ -1,19 +1,22 @@
 # fern-wifi-cracker
 
 ## 简介
-WiFi 破解的图形化工具
+图形化 WiFi 安全审计工具
 
 ## 核心参数
-无特定参数或使用默认参数
+- GUI 操作
 
 ## 命令示例
 ```bash
-# 基本用法
-fern-wifi-cracker [参数]
+# 启动 Fern WiFi Cracker
+fern-wifi-cracker
+
+# 或使用 Python 启动
+python3 /usr/share/fern-wifi-cracker/execute.py
 ```
 
 ## 使用场景
-aircrack-ng 的图形化版本，更易用
+图形化 WiFi 渗透测试
 
 ## 所属分类
 - [WiFi 攻击 (WiFi Attacks)](../categories/24-wifi-attacks.md)

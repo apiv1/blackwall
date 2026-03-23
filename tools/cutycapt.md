@@ -9,8 +9,17 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-cutycapt [参数]
+# 网页截图
+cutycapt --url=http://target.com --out=screenshot.png
+
+# 指定分辨率
+cutycapt --url=http://target.com --out=screenshot.png --min-width=1920 --min-height=1080
+
+# 延迟截图
+cutycapt --url=http://target.com --out=screenshot.png --delay=5000
+
+# 指定用户代理
+cutycapt --url=http://target.com --out=screenshot.png --user-agent="Mozilla/5.0"
 ```
 
 ## 使用场景

@@ -12,8 +12,20 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-ffuf [参数]
+# 目录爆破
+ffuf -u http://target.com/FUZZ -w /usr/share/wordlists/dirb/common.txt
+
+# 子域名爆破
+ffuf -u http://FUZZ.target.com -w subdomains.txt
+
+# POST 参数爆破
+ffuf -u http://target.com/login -X POST -d "username=admin&password=FUZZ" -w passwords.txt
+
+# 文件扩展名爆破
+ffuf -u http://target.com/indexFUZZ -w extensions.txt
+
+# 过滤响应大小
+ffuf -u http://target.com/FUZZ -w wordlist.txt -fs 4242
 ```
 
 ## 使用场景

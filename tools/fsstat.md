@@ -4,16 +4,22 @@
 显示文件系统详细信息
 
 ## 核心参数
-- 镜像文件路径
+- 镜像文件
 
 ## 命令示例
 ```bash
-# 基本用法
-fsstat [参数]
+# 显示文件系统信息
+fsstat disk.img
+
+# 指定文件系统类型
+fsstat -f ext4 disk.img
+
+# 详细输出
+fsstat -v disk.img
 ```
 
 ## 使用场景
-分析文件系统类型、大小、块信息
+获取文件系统元数据信息
 
 ## 所属分类
-- [Sleuth Kit 取证工具套件 (Sleuth Kit Suite)](../categories/32-sleuth-kit-suite.md)
+- [Sleuth Kit 取证工具套件](../categories/32-sleuth-kit-suite.md)

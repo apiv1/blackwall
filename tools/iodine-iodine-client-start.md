@@ -10,8 +10,11 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-iodine (iodine-client-start) [参数]
+# DNS 隧道客户端
+iodine -f 192.168.99.1 tunnel.example.com
+
+# 服务端
+iodined -f 192.168.99.1 tunnel.example.com
 ```
 
 ## 使用场景

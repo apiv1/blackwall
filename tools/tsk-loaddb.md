@@ -8,8 +8,8 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-tsk_loaddb [参数]
+# 加载到数据库
+tsk_loaddb -d database disk.img
 ```
 
 ## 使用场景

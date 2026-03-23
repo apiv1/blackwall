@@ -9,8 +9,11 @@ NTFS 文件系统数据恢复工具
 
 ## 命令示例
 ```bash
-# 基本用法
-scrounge-ntfs [参数]
+# 恢复 NTFS 文件
+scrounge-ntfs -l disk.img
+
+# 恢复到目录
+scrounge-ntfs -o output_dir disk.img
 ```
 
 ## 使用场景

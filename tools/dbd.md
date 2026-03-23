@@ -10,8 +10,14 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-dbd [参数]
+# 监听模式（加密）
+dbd -l -p 4444 -e /bin/bash -k password
+
+# 连接模式
+dbd -c 192.168.1.100 -p 4444 -k password
+
+# 使用 AES 加密
+dbd -l -p 4444 -e /bin/bash -k password -a aes256
 ```
 
 ## 使用场景

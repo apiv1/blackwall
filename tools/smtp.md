@@ -13,8 +13,12 @@ SMTP 测试工具，发送测试邮件
 
 ## 命令示例
 ```bash
-# 基本用法
-SMTP 工具 [参数]
+# SMTP 工具
+# 使用 swaks 测试
+swaks --to user@target.com --server 192.168.1.100
+
+# 使用 smtp-user-enum 枚举
+smtp-user-enum -M VRFY -U users.txt -t 192.168.1.100
 ```
 
 ## 使用场景

@@ -8,8 +8,8 @@
 
 ## 命令示例
 ```bash
-# 基本用法
-tsk_gettimes [参数]
+# 获取时间戳
+tsk_gettimes disk.img > times.txt
 ```
 
 ## 使用场景
