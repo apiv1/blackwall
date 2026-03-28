@@ -165,7 +165,7 @@
 - [photorec](photorec.md) - 文件恢复工具，从磁盘恢复删除的文件
 - [pipal](pipal.md) - 密码统计分析工具
 - [pixiewps](pixiewps.md) - 离线 WPS PIN 破解工具（Pixie Dust 攻击）
-- [powershell](powershell.md) - Windows PowerShell 命令行环境（Linux 版）
+- [PowerShell](PowerShell.md) - Windows PowerShell 命令行环境（Linux 版）
 - [powershell-empire](powershell-empire.md) - 后渗透框架，基于 PowerShell 的 C2 平台
 - [powersploit](powersploit.md) - PowerShell 后渗透框架
 - [proxychains4](proxychains4.md) - 强制任何程序通过代理链（SOCKS/HTTP）运行

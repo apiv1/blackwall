@@ -17,7 +17,7 @@ VLAN 跳跃攻击工具，针对 VoIP 网络
 ### [tcpreplay](../tools/tcpreplay.md)
 重放 pcap 数据包
 
-### [PowerShell](../tools/powershell.md)
+### [PowerShell](../tools/PowerShell.md)
 Windows PowerShell 命令行环境（Linux 版）
 
 ### [NetHunter](../tools/nethunter.md)
